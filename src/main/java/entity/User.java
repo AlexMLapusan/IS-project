@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 public class User {
-	
+	//TODO: Add all the necessary class variables, getters and setters
 	@Id
 	private String id;
 	
