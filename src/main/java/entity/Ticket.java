@@ -11,9 +11,6 @@ public class Ticket {
     private String id;
 
     @Column
-    private String idUser;
-
-    @Column
     private boolean valid;
 
     @Column
@@ -24,4 +21,59 @@ public class Ticket {
 
     @Column
     private Date activationTime;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
+    public Ticket() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
+    public String getValidityDuration() {
+        return validityDuration;
+    }
+
+    public void setValidityDuration(String validityDuration) {
+        this.validityDuration = validityDuration;
+    }
+
+    public boolean isActivity() {
+        return activity;
+    }
+
+    public void setActivity(boolean activity) {
+        this.activity = activity;
+    }
+
+    public Date getActivationTime() {
+        return activationTime;
+    }
+
+    public void setActivationTime(Date activationTime) {
+        this.activationTime = activationTime;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

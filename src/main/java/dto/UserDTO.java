@@ -1,45 +1,21 @@
-package entity;
+package dto;
 
-import javax.persistence.*;
+import entity.Ticket;
+
 import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 
-@Entity
-@Table(name = "user")
-public class User {
-
-    @Id
+public class UserDTO {
     private String id;
-
-    @Column
     private String firstName;
-
-    @Column
     private String lastName;
-
-    @Column
     private String address;
-
-    @Column
     private String phoneNumber;
-
-    @Column
     private String email;
-
-    @Column
     private String password;
-
-    @Column
     private boolean confirmed;
-
-    @Lob
-    private byte[] image;
-
-    @OneToMany(mappedBy = "user")
+    private ImageIcon image;
     private List<Ticket> tickets;
-
-    public User() {}
 
     public String getId() {
         return id;
@@ -106,11 +82,10 @@ public class User {
     }
 
     public ImageIcon getImage() {
-        return new ImageIcon(new ImageIcon(image)
-                .getImage().getScaledInstance(200,200, Image.SCALE_SMOOTH));
+        return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(ImageIcon image) {
         this.image = image;
     }
 

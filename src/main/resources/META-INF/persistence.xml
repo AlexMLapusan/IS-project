@@ -6,9 +6,9 @@
     <persistence-unit name="ro.tutorial.lab.SD" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/is_project"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/BdIs"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.password" value="root"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <property name="hibernate.connection.autocommit" value="false"/>
             <property name="hibernate.connection.CharSet" value="utf8"/>

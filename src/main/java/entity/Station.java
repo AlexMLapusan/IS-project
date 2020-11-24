@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "station")
@@ -14,6 +15,9 @@ public class Station {
 
     @Column
     private String address;
+
+    @ManyToMany(mappedBy = "stations")
+    private List<Route> routes;
 
     public Station() {
     }
@@ -40,5 +44,13 @@ public class Station {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 }

@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "route_subscription")
@@ -18,6 +19,12 @@ public class RouteSubscription {
 
     @Column
     private Date expiryDate;
+
+    @ManyToMany(cascade =  CascadeType.ALL)
+    @JoinTable(name = "rs_routes",
+            joinColumns = @JoinColumn(name = "id_subscription"),
+            inverseJoinColumns = @JoinColumn(name = "id_route"))
+    private List<Route> routes;
 
     public RouteSubscription() {
     }
@@ -52,5 +59,13 @@ public class RouteSubscription {
 
     public void setExpiryDate(Date expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
     }
 }

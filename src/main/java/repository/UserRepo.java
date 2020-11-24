@@ -16,4 +16,12 @@ public class UserRepo {
         em.getTransaction().commit();
         em.close();
     }
+
+    public User findUser(String id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        User user =	em.find(User.class,id);
+        em.close();
+        return user;
+    }
 }
