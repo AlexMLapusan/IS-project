@@ -1,13 +1,27 @@
-package entity;
+package com.spring.entity;
 
+import com.spring.entity.Ticket;
+
+import javax.imageio.ImageIO;
 import javax.persistence.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Entity
 @Table(name = "user")
 public class User {
+
+    public User(String id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     @Id
     private String id;
@@ -33,8 +47,8 @@ public class User {
     @Column
     private boolean confirmed;
 
-    @Lob
-    private byte[] image;
+    @Column
+    private String image;
 
     @OneToMany(mappedBy = "user")
     private List<Ticket> tickets;
@@ -105,12 +119,13 @@ public class User {
         this.confirmed = confirmed;
     }
 
-    public ImageIcon getImage() {
-        return new ImageIcon(new ImageIcon(image)
-                .getImage().getScaledInstance(200,200, Image.SCALE_SMOOTH));
+    public String getImage() {
+//        return new ImageIcon(new ImageIcon(image)
+//                .getImage().getScaledInstance(200,200, Image.SCALE_SMOOTH));
+        return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

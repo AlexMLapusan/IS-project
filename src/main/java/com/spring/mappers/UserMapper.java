@@ -1,10 +1,16 @@
-package mappers;
+package com.spring.mappers;
 
-import dto.UserDTO;
-import entity.User;
+import com.spring.dto.UserDTO;
+import com.spring.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.spring.repository.UserRepo;
 
 public class UserMapper {
-    public static UserDTO entityToDto(User user){
+
+    @Autowired
+    UserRepo userRepo;
+
+    public static UserDTO convertToUserDTO(User user){
         UserDTO userDto = new UserDTO();
         userDto.setAddress(user.getAddress());
         userDto.setConfirmed(user.isConfirmed());
@@ -18,6 +24,7 @@ public class UserMapper {
         userDto.setTickets(user.getTickets());
         return userDto;
     }
+
     public static User dtoToEntity(UserDTO userDTO){
         User user = new User();
         return user;

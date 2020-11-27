@@ -1,6 +1,7 @@
-package dto;
+package com.spring.dto;
 
-import entity.Ticket;
+import com.spring.entity.Ticket;
+import com.spring.entity.User;
 
 import javax.swing.*;
 import java.util.List;
@@ -14,7 +15,7 @@ public class UserDTO {
     private String email;
     private String password;
     private boolean confirmed;
-    private ImageIcon image;
+    private String image;
     private List<Ticket> tickets;
 
     public String getId() {
@@ -81,11 +82,11 @@ public class UserDTO {
         this.confirmed = confirmed;
     }
 
-    public ImageIcon getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(ImageIcon image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -95,5 +96,9 @@ public class UserDTO {
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public User loginWithEmailAndPass(String email, String pass){
+        return null;
     }
 }

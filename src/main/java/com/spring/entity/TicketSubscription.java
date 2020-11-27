@@ -1,4 +1,4 @@
-package entity;
+package com.spring.entity;
 import javax.persistence.*;
 import java.util.Date;
 
