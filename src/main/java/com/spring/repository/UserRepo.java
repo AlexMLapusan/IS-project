@@ -32,12 +32,11 @@ public class UserRepo {
 
     public User findUserByEmailAndPass(String email, String pass) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String select = "SELECT ua FROM User ua WHERE ua.email=:userName and ua.password=:password";
+        String select = "SELECT ua FROM User ua WHERE ua.email=:email and ua.password=:password";
 
         Query query = entityManager.createQuery(select);
-        query.setParameter("userName", email);
+        query.setParameter("email", email);
         query.setParameter("password", pass);
-
         entityManager.getTransaction().begin();
         User u = (User) query.getSingleResult();
 
@@ -47,7 +46,7 @@ public class UserRepo {
 
     public Collection<User> getAllUsers() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String select = "SELECT ua FROM User ua";
+        String select = "SELECT a FROM User a";
 
         Query query = entityManager.createQuery(select);
 

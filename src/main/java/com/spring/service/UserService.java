@@ -13,12 +13,6 @@ public class UserService {
     @Autowired
     private UserRepo ur;
 
-    public User attemptLogin(String email, String password) {
-        UserRepo ur = new UserRepo();
-//        return userDTO.loginWithEmailAndPass(email, password);
-        return ur.findUserByEmailAndPass("geo@gmail.com", "pass");
-    }
-
     public Collection<User> getAllUsers(){
         return ur.getAllUsers();
     }

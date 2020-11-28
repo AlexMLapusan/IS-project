@@ -8,7 +8,6 @@ import com.spring.service.UserService;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
 @CrossOrigin
 @RestController
 @RequestMapping("/user")
@@ -19,7 +18,8 @@ public class UserController {
 
     @GetMapping(value = "/login")
     public User attemptLogin(@RequestParam(defaultValue = "empty") String email, @RequestParam(defaultValue = "empty") String password) {
-        return userService.attemptLogin(email, password);
+//        return userService.attemptLogin(email, password);
+        return null;
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
