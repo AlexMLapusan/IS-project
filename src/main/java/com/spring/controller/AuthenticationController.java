@@ -3,16 +3,13 @@ package com.spring.controller;
 
 import com.spring.dto.LoginDTO;
 import com.spring.entity.User;
-import com.spring.repository.UserRepo;
 import com.spring.service.AuthenticationService;
-import com.spring.service.UserService;
-import com.sun.corba.se.spi.ior.ObjectKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/login1")
 public class AuthenticationController {
 
     @Autowired
