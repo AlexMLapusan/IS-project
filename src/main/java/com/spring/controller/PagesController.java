@@ -16,6 +16,8 @@ public class PagesController {
     {
         return "login";
     }
+    @RequestMapping("/register")
+    public String register() { return "createAccount"; }
 
 
 }
