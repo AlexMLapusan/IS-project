@@ -17,6 +17,8 @@ public class PagesController {
     public String register() { return "createAccount"; }
     @RequestMapping("/buyTickets")
     public String buy() { return "buy"; }
+    @RequestMapping("/myAccount")
+    public String myAccount() {return "";}
 
 
 
