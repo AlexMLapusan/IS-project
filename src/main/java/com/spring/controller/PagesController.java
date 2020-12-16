@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PagesController {
 
     @RequestMapping("/home")
-    public String home()
-    {
-        return "home";
-    }
+    public String home(){ return "pageForUser"; }
     @RequestMapping("/login")
     public String login()
     {
@@ -20,5 +17,7 @@ public class PagesController {
     public String register() { return "createAccount"; }
     @RequestMapping("/buyTickets")
     public String buy() { return "buy"; }
+
+
 
 }

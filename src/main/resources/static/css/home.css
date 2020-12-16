@@ -1,3 +1,90 @@
+
 body {
-    background-color: #95c2de;
+	max-width: 1520px;
+	max-height: 100%;
+    background-repeat: repeat; 
+	background-position: 1560px -340px;
+	background-image: url("../images/art.jpg")
+	
+}
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff;
+}
+.navbar.navbar-default{
+    background-image: linear-gradient(to bottom,#d48162 10%,#222d51 100%)
+	
+}
+
+.navbar.navbar-default.fixed{
+	position: fixed;
+	width: 1140px;
+	z-index:9999;
+}
+.car
+{
+	height:450px; width:1110px;
+}
+.car1
+{   
+	margin-left: 100px; 
+	margin-right: 100px;
+	height:450px; 
+	width:900px;
+}
+.col-md-4 > .thumbnail
+{
+	background:#ffe6b3;
+	width:100%;
+	height:435px;
+}
+.glyphicon.glyphicon-envelope
+{
+	margin-left:10px;
+}
+.glyphicon.glyphicon-briefcase
+{
+	margin-left:10px;
+}
+.glyphicon.glyphicon-phone
+{
+	margin-left:10px;
+}
+.glyphicon.glyphicon-earphone
+{
+	margin-left:10px;
+}
+.multi-item-carousel{
+.carousel-inner{
+> .item{
+    transition: 500ms ease-in-out left;
+}
+.active{
+&.left{
+     left:-33%;
+ }
+&.right{
+     left:33%;
+ }
+}
+.next{
+    left: 33%;
+}
+.prev{
+    left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+    > .item{
+    // use your favourite prefixer here
+    transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+    }
+}
+}
+.carouse-control{
+&.left, &.right{
+             background-image: none;
+         }
+}
 }
