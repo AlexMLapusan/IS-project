@@ -18,7 +18,7 @@ public class PagesController {
     @RequestMapping("/buyTickets")
     public String buy() { return "buy"; }
     @RequestMapping("/myAccount")
-    public String myAccount() {return "";}
+    public String myAccount() {return "myAccount";}
 
 
 
