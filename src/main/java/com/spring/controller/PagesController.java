@@ -7,20 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PagesController {
 
     @RequestMapping("/home")
-    public String home(){ return "pageForUser"; }
+    public String home(){ return "home_user"; }
     @RequestMapping("/login")
     public String login()
     {
         return "login";
     }
     @RequestMapping("/register")
-    public String register() { return "createAccount"; }
-    @RequestMapping("/buyTickets")
+    public String register() { return "register"; }
+
+    @RequestMapping("/buy")
     public String buy() { return "buy"; }
-    @RequestMapping("/myAccount")
-    public String myAccount() {return "myAccount";}
-    @RequestMapping("/homeAdmin")
-    public String homeForAdmin(){ return "pageForAdmin"; }
+    @RequestMapping("/user_account ")
+    public String myAccount() {return "user_account";}
+    @RequestMapping("/home_admin")
+    public String homeForAdmin(){ return "home_admin"; }
 
 
 
