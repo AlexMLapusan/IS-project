@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<title>MainPageForUser</title>
+	<meta charset="UTF-8"/> <link rel="stylesheet" th:inline="text" th:href="@{/css/home.css}">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+    <script src="js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-default fixed" >
+			<ul class="nav navbar-nav pull-right">
+					 <li><a  href="/home">Acasa</a></li>
+					<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="creareAbonament.html">Abonamente</a>
+						<ul class="dropdown-menu">
+						  <li><a href="creareAbonament.html">Calatorii</a></li>
+						  <li><a href="creareAbonament1.html">1Linie</a></li>
+						  <li><a href="creareAbonament2.html">2Linii</a></li>
+						</ul>
+					 </li>
+					 -->
+					 <li><a href="/buyTickets">Abonamente/Bilete</a></li>
+					 <li><a href="">Linii</a></li>
+					 <li><a href="/login">Logout</a></li>
+			</ul>
+							   
+	</div>
+	<div class="space">
+	<div class="row">
+	<div class="col-md-3" >
+	 <img class="photo" src="../images/user.jpg">---Poza userului din db-<div class="btn btn-warning">Schimba poza </div></a>
+	</div>
+	
+	<div class="col-md-7">
+	    <div class="layer">  
+			<div class="input-group">
+			   <div class="input-group-addon">Nume utilizator</div>
+			   ------Nume utilizator luat din baza de date,nu poate fi schimbat pe parcurs de utilizator!</div>
+			<div class="input-group">
+				<div class="input-group-addon">Prenume utilizator</div>
+			   ------Prenume utilizator luat din baza de date  --II--
+			</div>
+			<div class="input-group">
+				<div class="input-group-addon">Adresa</div> 
+				------Adresa utilizator luat din baza de date--poate fi schimbata       
+			</div>
+			<div class="input-group">
+				<div class="input-group-addon">Numar de telefon</div>
+			   ------Nume utilizator luat din baza de date
+			</div>
+			<div class="input-group">
+				<div class="input-group-addon">Email</div>
+			   ------Email luat din baza de date
+			</div>
+			<div class="input-group">
+				<div class="input-group-addon">Tipul abonamentului</div>
+			   ------ luat din baza de date
+			</div>
+			   
+	    </div>
+	</div>
+	<div class="col-md-2"> 
+	    <button type="button" class="btn btn-primary"> Optiuni USER </button><br><br>
+		<button type="button" class="btn btn-warning">Schimba adresa</button><br><br>
+		<button type="button" class="btn btn-warning">Schimba numar </button><br><br>
+		<button type="button" class="btn btn-warning">Schimba email </button><br><br>
+		<button type="button" class="btn btn-warning">Schimba parola </button><br><br>
+	
+	</div>
+</div>
+	</div>
+</div>
+</body>	
+	

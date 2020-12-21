@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<title>MainPageForUser</title>
+	<meta charset="UTF-8"/> 
+    <link rel="stylesheet" th:inline="text" th:href="@{/css/home.css}">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+    <script src="js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-default fixed" >
+			<ul class="nav navbar-nav pull-right">
+					 <li><a  href="/home">Acasa</a></li>
+					<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="creareAbonament.html">Abonamente</a>
+						<ul class="dropdown-menu">
+						  <li><a href="creareAbonament.html">Calatorii</a></li>
+						  <li><a href="creareAbonament1.html">1Linie</a></li>
+						  <li><a href="creareAbonament2.html">2Linii</a></li>
+						</ul>
+					 </li>
+					 -->
+					 <li><a href="/buyTickets">Abonamente/Bilete</a></li>
+					 <li><a href="">Linii</a></li>
+					 <li><a href="/myAccount">Contul meu</a></li>
+					 <li><a href="/login">Logout</a></li>
+			</ul>
+	</div><br><br>
+		
+	<div class="row">
+		<div class="col-md-12">
+		  <div class="carousel slide multi-item-carousel" id="theCarousel">
+			<div class="carousel-inner">
+			  <div class="item active">
+				<div class="col-xs-4">
+				   <img src="../images/wallpaper.jpg" class="car">
+				</div>
+			  </div>
+			  <div class="item">
+				<div class="col-xs-4">
+				   <img src="../images/busCluj.jpg" class="car">
+				</div>
+			  </div>
+			  <div class="item">
+				<div class="col-xs-4">
+				   <img src="../images/busCluj1.jpg" class="car">
+				</div>
+			  </div>
+			  <div class="item">
+				<div class="col-xs-4">
+				   <img src="../images/busCluj2.jpg" class="car1">
+				</div>
+			  </div>
+			  
+			  <div class="item">
+				<div class="col-xs-4">
+				   <img src="../images/bus.jpg" class="car1">
+				</div>
+			  </div>
+			</div>
+		  <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+		</div>
+	  </div>
+	</div>
+	
+	<br>
+           <div class="row">
+              <div class="col-md-4 " >
+                 <div class="thumbnail">
+                       <img  src="../images/busCluj3.jpg"  class="img_1"/>
+                         <center><p align="center" class="subtitlu col" ><h3>Compania de Transport </h3></p></center>
+                           <p class="textt" id="frate">
+                             <meta charset="utf-8"> Compania prestează servicii către populaţie, principala activitate fiind transportul de persoane în municipiul Cluj-Napoca şi în zona Metropolitană.</p>                       
+                         
+                </div>
+              </div>
+			  <div class="col-md-4 ">
+                  <div class="thumbnail ">
+                     <img  src="../images/contactUs.jpg"  class="img_1"/>
+					  <br><br>
+					  <div class="row">
+						  <div class="col-md-1 ">
+							  <i class="glyphicon glyphicon-briefcase"> </i>
+						  </div>
+						  <div class="col-md-11"> B-dul 21 Decembrie 1989 Nr. 128-130, 400604 Cluj-Napoca, Cluj</div>
+
+					  </div><br>
+					  <div class="row">
+						  <div class="col-md-1 ">
+							  <i class="glyphicon glyphicon-envelope"> </i>
+						  </div>
+						  <div class="col-md-11">contact@echipaF.ro</div>
+					  </div><br>
+
+
+					  <div class="row">
+						  <div class="col-md-1 ">
+							  <i class="glyphicon glyphicon-earphone"> </i>
+						  </div>
+						  <div class="col-md-11"><p>0214 564 899</p>
+						  </div>
+					  </div>
+
+					  <div class="row">
+						  <div class="col-md-1 ">
+							  <i class="glyphicon glyphicon-phone"> </i>
+						  </div>
+						  <div class="col-md-11">0721 568 569</div>
+					  </div>
+	  
+                 </div>
+                </div>
+				<div class="col-md-4 ">
+                  <div class="thumbnail ">
+                     <img  src="../images/secure.png" class="img_1"/>
+                        <p class="textt" ><br>
+                         <meta charset="utf-8">În conformitate cu REGULAMENTUL (UE) 2016/679 al Parlamentului European și al Consiliului din 27 aprilie 2016 (GDPR) cu privire la prelucrarea datelor cu caracter personal şi libera circulaţie a acestor date, COMPANIA DE TRANSPORT  prelucrează date cu caracter personal, cu respectarea principiilor menţionate în continuare, în scopuri legitime.</p>
+                        
+                 </div>
+                </div>
+			 </div>
+
+
+</div>
+</body>
+</html>

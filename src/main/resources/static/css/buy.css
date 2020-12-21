@@ -1,0 +1,79 @@
+#wrapper{
+	width:100%;
+	text-align:center;
+}
+
+input[type=submit]{
+	width: 100%;
+}
+input[file]{
+	padding-top:5px;
+	margin-top: 5px;
+}
+body {
+	max-width: 1520px;
+	max-height: 100%;
+	background-position: -80px -140px;
+	background-image: url(../images/bus-tickets.jpg)
+
+}
+div{
+	word-wrap: break-word;
+}
+.navbar{
+	position:fixed;
+}
+.layer{
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	background:rgba(255,255,255,1.5);
+	opacity: 0.9;
+	text-align: center;
+	width:100%;
+	height: 280px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto
+}
+#layer1{
+	height: 200px;
+}
+
+.admin{
+	margin-right: 12px;
+
+}
+.user{
+	margin-right:20px;
+}
+.input-group > .input-group-addon
+{   background-color:  #e0e0eb;
+	font-weight: 700;
+}
+#login{
+	width:300px;
+}
+.btn-warning{
+	opacity:0.8;
+}
+.navbar>.navbar-default>.fixed{
+	padding-left:25px;
+}
+
+.input-group > .input-group-addon-up
+{   background-color:  #e0e0eb;
+	font-weight: 700;
+}
+.link{
+	text-decoration: none;
+	color:white;
+}
+.navbar.navbar-default{
+	background-image: linear-gradient(to bottom,#fff 0,#78a179 100%);
+
+}
+.navbar-default .navbar-nav>li>a{
+	color:#000;
+}
