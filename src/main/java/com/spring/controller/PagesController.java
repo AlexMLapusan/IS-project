@@ -19,7 +19,7 @@ public class PagesController {
     @RequestMapping("/buy")
     public String buy() { return "buy"; }
     @RequestMapping("/user_account ")
-    public String myAccount() {return "user_account";}
+    public String user_account() {return "user_account";}
     @RequestMapping("/home_admin")
     public String homeForAdmin(){ return "home_admin"; }
 
