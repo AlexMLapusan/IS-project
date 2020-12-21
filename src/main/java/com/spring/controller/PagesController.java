@@ -19,6 +19,8 @@ public class PagesController {
     public String buy() { return "buy"; }
     @RequestMapping("/myAccount")
     public String myAccount() {return "myAccount";}
+    @RequestMapping("/homeAdmin")
+    public String homeForAdmin(){ return "pageForAdmin"; }
 
 
 
