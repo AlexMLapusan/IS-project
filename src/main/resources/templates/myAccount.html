@@ -37,24 +37,24 @@
 	</div>
 	
 	<div class="col-md-7">
-	    <div class="layer">  
+	    <div class="layer">
 			<div class="input-group">
-			   <div class="input-group-addon">Nume utilizator</div>
+			   <div class="input-group-addon"><p th:text="${loggedUser.lastName}"></p></div>
 			   ------Nume utilizator luat din baza de date,nu poate fi schimbat pe parcurs de utilizator!</div>
 			<div class="input-group">
-				<div class="input-group-addon">Prenume utilizator</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.firstName}"></p></div>
 			   ------Prenume utilizator luat din baza de date  --II--
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Adresa</div> 
+				<div class="input-group-addon"><p th:text="${loggedUser.address}"></p></div>
 				------Adresa utilizator luat din baza de date--poate fi schimbata       
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Numar de telefon</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.phoneNumber}"></p></div>
 			   ------Nume utilizator luat din baza de date
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Email</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.email}"></p></div>
 			   ------Email luat din baza de date
 			</div>
 			<div class="input-group">

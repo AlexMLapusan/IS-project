@@ -1,27 +1,55 @@
 package com.spring.controller;
 
+import com.spring.entity.User;
+import com.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PagesController {
 
-    @RequestMapping("/home")
-    public String home(){ return "pageForUser"; }
+    @RequestMapping("/user_home")
+    public String home() {
+        User loggedUser = Utils.getLoggedUser();
+        if (loggedUser == null) {
+            return "login";
+        }
+        return "user_home";
+    }
+
+    @RequestMapping("/myAccount")
+    public String myAccount(ModelMap modelMap) {
+        User loggedUser = Utils.getLoggedUser();
+
+        if (loggedUser == null) {
+            return "login";
+        }
+        modelMap.addAttribute("loggedUser", loggedUser);
+        return "myAccount";
+    }
+
     @RequestMapping("/login")
-    public String login()
-    {
+    public String login() {
+        Utils.setLoggedUser(null);
         return "login";
     }
-    @RequestMapping("/register")
-    public String register() { return "createAccount"; }
-    @RequestMapping("/buyTickets")
-    public String buy() { return "buy"; }
-    @RequestMapping("/myAccount")
-    public String myAccount() {return "myAccount";}
-    @RequestMapping("/homeAdmin")
-    public String homeForAdmin(){ return "pageForAdmin"; }
 
+    @RequestMapping("/register")
+    public String register() {
+        Utils.setLoggedUser(null);
+        return "register";
+    }
+
+    @RequestMapping("/buyTickets")
+    public String buy() {
+        return "buy";
+    }
+
+    @RequestMapping("/admin_home")
+    public String homeForAdmin() {
+        return "admin_home";
+    }
 
 
 }
