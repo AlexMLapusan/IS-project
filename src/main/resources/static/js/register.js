@@ -9,7 +9,7 @@
             imageSrc = $("#image_src").val();
 
         var settings = {
-            "url": window.location.origin + "/register/user",
+            "url": window.location.origin + "/req/register/user",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -33,7 +33,7 @@
                 alert("Account created. You will now be redirected to the login page");
                 window.location.replace(window.location.origin + "/login");
             }else{
-                alert("Something went wrong. Please try again later");
+                alert("Something went wrong. Please try again");
             }
         });
     });

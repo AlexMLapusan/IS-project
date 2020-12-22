@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/req/login")
 public class AuthenticationController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class AuthenticationController {
 //        return user;
 //    }
 
-    @RequestMapping(path = "/attempt_login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(path = "/user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public User attemptLogin(@RequestBody LoginDTO credentials) {
         //objectKey will contain the email and password
         return authenticationService.attemptLogin(credentials.getEmail(), credentials.getPassword());

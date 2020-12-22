@@ -18,7 +18,7 @@ public class PagesController {
         return "home_user";
     }
 
-    @RequestMapping("/user_account ")
+    @RequestMapping("/user_account")
     public String myAccount(ModelMap modelMap) {
         User loggedUser = Utils.getLoggedUser();
 

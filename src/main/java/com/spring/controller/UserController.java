@@ -5,22 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.spring.service.UserService;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/user")
+@RequestMapping("req/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @GetMapping(value = "/login")
-    public User attemptLogin(@RequestParam(defaultValue = "empty") String email, @RequestParam(defaultValue = "empty") String password) {
-//        return userService.attemptLogin(email, password);
-        return null;
-    }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public Collection<User> getAllStudents() {

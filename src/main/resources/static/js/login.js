@@ -4,7 +4,7 @@
             password = $("#user_password").val();
 
         var settings = {
-            "url": window.location.origin+"/auth/attempt_login",
+            "url": window.location.origin+"/req/login/user",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -15,7 +15,7 @@
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            window.location.replace(window.location.origin + "/user_home");
+            window.location.replace(window.location.origin + "/home_user");
         });
     });
 })(jQuery);
