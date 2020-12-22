@@ -20,7 +20,7 @@ public class RouteSubscription {
     @Column
     private Date expiryDate;
 
-    @ManyToMany(cascade =  CascadeType.ALL)
+    @ManyToMany(cascade =  CascadeType.MERGE)
     @JoinTable(name = "rs_routes",
             joinColumns = @JoinColumn(name = "id_subscription"),
             inverseJoinColumns = @JoinColumn(name = "id_route"))
