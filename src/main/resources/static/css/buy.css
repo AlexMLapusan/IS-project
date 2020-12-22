@@ -76,3 +76,22 @@ div{
 .navbar-default .navbar-nav>li>a{
 	color:#000;
 }
+
+/*Css pentru ca sa apara una sub alta chestiile din "creare abonament..."*/
+.layer{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+label[for=tickets_subscription]{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+}
+
+#tickets_subscription{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+}
