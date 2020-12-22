@@ -2,6 +2,7 @@ package com.spring.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "route")
@@ -9,6 +10,9 @@ public class Route {
 
     @Id
     private String id;
+
+    @Column
+    private String alias;
 
     @Column
     private int routeInterval;
@@ -25,7 +29,7 @@ public class Route {
     @ManyToMany(mappedBy = "routes")
     private List<RouteSubscription> rs;
 
-    @ManyToMany(cascade =  CascadeType.ALL)
+    @ManyToMany(cascade =  CascadeType.MERGE)
     @JoinTable(name = "route_station",
             joinColumns = @JoinColumn(name = "id_route"),
             inverseJoinColumns = @JoinColumn(name = "id_station"))
@@ -40,6 +44,14 @@ public class Route {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
     public int getRouteInterval() {
