@@ -15,7 +15,7 @@ public class PagesController {
         if (loggedUser == null) {
             return "login";
         }
-        return "user_home";
+        return "home_user";
     }
 
     @RequestMapping("/myAccount")
@@ -26,7 +26,7 @@ public class PagesController {
             return "login";
         }
         modelMap.addAttribute("loggedUser", loggedUser);
-        return "myAccount";
+        return "user_account";
     }
 
     @RequestMapping("/login")
@@ -48,7 +48,7 @@ public class PagesController {
 
     @RequestMapping("/admin_home")
     public String homeForAdmin() {
-        return "admin_home";
+        return "home_admin";
     }
 
 
