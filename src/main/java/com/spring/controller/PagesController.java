@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PagesController {
 
-    @RequestMapping("/user_home")
+    @RequestMapping("/home_user")
     public String home() {
         User loggedUser = Utils.getLoggedUser();
         if (loggedUser == null) {
@@ -18,7 +18,7 @@ public class PagesController {
         return "home_user";
     }
 
-    @RequestMapping("/myAccount")
+    @RequestMapping("/user_account ")
     public String myAccount(ModelMap modelMap) {
         User loggedUser = Utils.getLoggedUser();
 
