@@ -16,6 +16,14 @@
     <div class="navbar navbar-default fixed" >
 			<ul class="nav navbar-nav pull-right">
 					 <li><a  href="/home">Acasa</a></li>
+					<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="creareAbonament.html">Abonamente</a>
+						<ul class="dropdown-menu">
+						  <li><a href="creareAbonament.html">Calatorii</a></li>
+						  <li><a href="creareAbonament1.html">1Linie</a></li>
+						  <li><a href="creareAbonament2.html">2Linii</a></li>
+						</ul>
+					 </li>
+					 -->
 					 <li><a href="/buy">Abonamente/Bilete</a></li>
 					 <li><a href="">Linii</a></li>
 					 <li><a href="/login">Logout</a></li>
@@ -31,22 +39,22 @@
 	<div class="col-md-7">
 	    <div class="layer">  
 			<div class="input-group">
-			   <div class="input-group-addon">Nume utilizator</div>
+			   <div class="input-group-addon"><p th:text="${loggedUser.lastName}"></p></div>
 			   ------Nume utilizator luat din baza de date,nu poate fi schimbat pe parcurs de utilizator!</div>
 			<div class="input-group">
-				<div class="input-group-addon">Prenume utilizator</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.firstName}"></p></div>
 			   ------Prenume utilizator luat din baza de date  --II--
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Adresa</div> 
+				<div class="input-group-addon"><p th:text="${loggedUser.address}"></p></div>
 				------Adresa utilizator luat din baza de date--poate fi schimbata       
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Numar de telefon</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.phoneNumber}"></p></div>
 			   ------Nume utilizator luat din baza de date
 			</div>
 			<div class="input-group">
-				<div class="input-group-addon">Email</div>
+				<div class="input-group-addon"><p th:text="${loggedUser.email}"></p></div>
 			   ------Email luat din baza de date
 			</div>
 			<div class="input-group">

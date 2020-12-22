@@ -2,51 +2,54 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Login</title>
-	<meta charset="UTF-8"/>
-	<link rel="stylesheet" th:inline="text" th:href="@{/css/login.css}" />
-	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <title>Login</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:inline="text" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 
-<body >
+<body>
 
-  <div id="wrapper">
-      <div class="row">
-        <div class="col-md-4"> </div>
-        <div class="col-md-4">  
-         
-			<div class="layer">  
-			<h2 >Login</h2>
-			<div class="input-group">
-			   <div class="input-group-addon">Username </div>
-			   <input type="text" name="username" class="form-control" placeholder="Your name..." required >
-			</div>
-			<br>	
-			<div class="input-group">
-				<span class="input-group-addon">Password</span>
-				 <input type="password" name="password" placeholder="Your password.." class="form-control">
-			</div>
-			 <br>
-				<span class="input-group-addon">
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+            <div class="layer">
+                <h2>Login</h2>
+                <div class="input-group">
+                    <div class="input-group-addon">Username</div>
+                    <input id="user_email" type="text" name="username" class="form-control" placeholder="Your name..."
+                           required>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">Password</span>
+                    <input id="user_password" type="password" name="password" placeholder="Your password.."
+                           class="form-control">
+                </div>
+                <br>
+                <span class="input-group-addon">
 					<label class="admin">Login as Admin
-					<input type="checkbox" >
+					<input type="checkbox">
 				    <span class="checkmark"></span>
 					</label>
 				</span>
-			 
-			 <br>
-			  <button id = "login"  class="btn btn-warning" >Login</button>
-			 <br><br>		
-			 <a href="/register">If you do not have an account,sing up!</a>
-             </div>
-		</div>
-        <div class="col-md-4"></div> 
-	</div>
-  </div>
+
+                <br>
+                <button id="login" class="btn btn-warning">Login</button>
+                <br><br>
+                <a href="/register">If you do not have an account,sing up!</a>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+<script th:src="@{/js/login.js}"></script>
+
 </body>
 </html>
