@@ -6,25 +6,16 @@ import com.spring.entity.User;
 import javax.swing.*;
 import java.util.List;
 
-public class UserDTO {
-    private String id;
+public class RegisterUserDTO {
+
     private String firstName;
     private String lastName;
     private String address;
     private String phoneNumber;
     private String email;
     private String password;
-    private boolean confirmed;
     private String image;
-    private List<Ticket> tickets;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -74,28 +65,12 @@ public class UserDTO {
         this.password = password;
     }
 
-    public boolean isConfirmed() {
-        return confirmed;
-    }
-
-    public void setConfirmed(boolean confirmed) {
-        this.confirmed = confirmed;
-    }
-
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
     }
 
 }
