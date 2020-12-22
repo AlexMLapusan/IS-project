@@ -6,11 +6,8 @@
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" th:inline="text" th:href="@{/css/buy.css}" />
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+	<script src="js/bootstrap/bootstrap.min.js"></script>
 
 
 
@@ -40,65 +37,56 @@
 					<option value="nelimitat">Nelimitat</option>
 				</select>
 
-				<button type="button" class="btn btn-danger"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
-
+				<div class="text-center">
+					<button type="button" class="btn btn-danger"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="layer">
-				<h2 >Creare Abonament -O Linie</h2>
+				<h2 >Creare Abonament -  O Linie</h2>
 
 
-				<button tabindex="-1" class="btn btn-default" type="button">Introduceti linia dorita:</button>
-				<button tabindex="-1" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
 
-					<select name="oLinie" >
-						<option value="default">Introduceti numarul liniei</option>
-						<option value="30cal">30 calatorii</option>
-						<option value="60cal">60 calatorii</option>
-						<option value="90cal">90 calatorii</option>
-						<option value="120cal">120 calatorii</option>
-						<option value="nelimitat">Nelimitat</option>
-					</select>
-				</button>
-				<br><br><br><br>
-				<div class="text-right">
+				<label for="tickets_subscription1">Introduceti linia dorita:</label>
+				<select id = "tickets_subscription1"name="oLinie"  >
+					<option value="default">Introduceti numarul liniei</option>
+					<option value="L1">Linia 1</option>
+					<option value="L2">Linia 2</option>
+					<option value="L3">Linia 3</option>
+					<option value="L4">Linia 4</option>
+					<option value="L5">Linia 5</option>
+				</select>
+
+				<div class="text-center">
 					<button type="button" class="btn btn-danger"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
 				</div>
 			</div></div>
-		<div class="col-md-4"><div class="layer">
-			<h2 >Creare Abonament -Doua Linii</h2>
-
-
-
-			<button tabindex="-1" class="btn btn-default" type="button">Introduceti liniile dorita:</button>
-			<button tabindex="-1" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-
-				<select name="2Linii" >
-					<option value="default">Introduceti numarul primei linii</option>
-					<option value="30cal">30 calatorii</option>
-					<option value="60cal">60 calatorii</option>
-					<option value="90cal">90 calatorii</option>
-					<option value="120cal">120 calatorii</option>
-					<option value="nelimitat">Nelimitat</option>
+		<div class="col-md-4">
+			<div class="layer">
+				<h2 >Creare Abonament -Doua Linii</h2>
+				<label for="tickets_subscription2">Introduceti liniile dorite:</label>
+				<select id = "tickets_subscription2" name="2Linii"  >
+					<option value="default">Introduceti numarul liniei</option>
+					<option value="L1">Linia 1</option>
+					<option value="L2">Linia 2</option>
+					<option value="L3">Linia 3</option>
+					<option value="L4">Linia 4</option>
+					<option value="L5">Linia 5</option>
 				</select>
-			</button>
-			<button tabindex="-1" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
 
-				<select name="marime" >
-					<option value="default">Introduceti numarul liniei2</option>
-					<option value="30cal">30 calatorii</option>
-					<option value="60cal">60 calatorii</option>
-					<option value="90cal">90 calatorii</option>
-					<option value="120cal">120 calatorii</option>
-					<option value="nelimitat">Nelimitat</option>
+				<select id = "tickets_subscription3" name="2Linii" >
+					<option value="default">Introduceti numarul liniei</option>
+					<option value="L1">Linia 1</option>
+					<option value="L2">Linia 2</option>
+					<option value="L3">Linia 3</option>
+					<option value="L4">Linia 4</option>
+					<option value="L5">Linia 5</option>
 				</select>
-			</button>
-			<br><br>
-			<div class="text-right">
-				<button type="button" class="btn btn-danger"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
-			</div>
-		</div></div>
+				<div class="text-center">
+					<button type="button" class="btn btn-danger"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
+				</div>
+			</div></div>
 	</div>
 	<div class="layer" id="layer1">
 
@@ -106,12 +94,11 @@
 		<br>
 		<div class="input-group">
 			<span class="input-group-addon">Numarul de bilete dorite </span>
-			<input type="number" name="phoneNumber" class="form-control" placeholder="Numarul de bilete dorite">
-			</button>
+			<input type="number" name="number" min="1" max="100" class="form-control" placeholder="Numarul de bilete dorite">
+
 		</div>
-		<br><br>
 		<div class="text-right">
-			<button type="button" class="btn btn-success"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
+			<button type="button" class="btn btn-warning"><a class="link" href="/userPage">Finalizati actiunea!</a></button>
 		</div>
 	</div>
 </div>

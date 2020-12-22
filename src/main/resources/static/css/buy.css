@@ -88,9 +88,37 @@ label[for=tickets_subscription]{
 	padding: 5px;
 	border: 1px solid #222;
 	border-radius: 10px;
+
 }
 
-#tickets_subscription{
+#tickets_subscription  {
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+
+}
+#tickets_subscription1{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+}
+label[for=tickets_subscription1]{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+}
+#tickets_subscription2{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+
+}
+#tickets_subscription3{
+	padding: 5px;
+	border: 1px solid #222;
+	border-radius: 10px;
+}
+label[for=tickets_subscription2]{
 	padding: 5px;
 	border: 1px solid #222;
 	border-radius: 10px;
