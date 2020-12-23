@@ -47,9 +47,9 @@ public class Station {
         this.address = address;
     }
 
-    public List<Route> getRoutes() {
-        return routes;
-    }
+    //public List<Route> getRoutes() {
+      //  return routes;
+   // }
 
     public void setRoutes(List<Route> routes) {
         this.routes = routes;

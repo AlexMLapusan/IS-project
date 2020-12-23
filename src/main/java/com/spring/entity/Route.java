@@ -29,7 +29,7 @@ public class Route {
     @ManyToMany(mappedBy = "routes")
     private List<RouteSubscription> rs;
 
-    @ManyToMany(cascade =  CascadeType.MERGE)
+    @ManyToMany(cascade =  {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinTable(name = "route_station",
             joinColumns = @JoinColumn(name = "id_route"),
             inverseJoinColumns = @JoinColumn(name = "id_station"))
