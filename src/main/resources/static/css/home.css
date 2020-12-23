@@ -38,10 +38,15 @@ body {
 }
 .glyphicon.glyphicon-envelope
 {
+
     margin-left:10px;
+}
+.col-md-11{
+    margin-top:10px;
 }
 .glyphicon.glyphicon-briefcase
 {
+    margin-top:2px;
     margin-left:10px;
 }
 .glyphicon.glyphicon-phone
@@ -71,7 +76,9 @@ body {
     margin-right: auto
 
 }
-
+.col-md-1{
+    margin-top:10px;
+}
 .col-md-2
 {
     margin-top:20px;
@@ -84,3 +91,4 @@ body {
 {
     margin-top: 100px;
 }
+
