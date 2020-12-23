@@ -3,7 +3,7 @@
 <head>
     <title>MainPageForUser</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" th:inline="text" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:inline="text" th:href="@{/css/user_account.css}">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
     <script src="js/bootstrap.min.js"></script>
@@ -24,52 +24,75 @@
     <div class="space">
         <div class="row">
             <div class="col-md-3">
-                <img class="photo" th:src=${loggedUser.image}>---Poza userului din db-
-                <div class="btn btn-warning">Schimba poza</div>
-                </a>
+                <img class="photo" th:src=${loggedUser.image}>
+                <div class="text-right">
+                    <div class="btn btn-warning">Schimba poza</div>
+                </div>
             </div>
 
             <div class="col-md-7">
                 <div class="layer">
-                    <div class="input-group">
-                        <label for="first_name" >First name</label>
-                        <input readonly id="first_name" type="text" class="form-control" th:value="${loggedUser.lastName}">
-<!--                        &#45;&#45;&#45;&#45;&#45;&#45;Nume utilizator luat din baza de date,nu poate fi schimbat pe parcurs de utilizator!-->
+                    <div class="row">
+                       <div class="col-xs-2">
+                           <label for="first_name" >First name </label></div>
+                        <div class="col-xs-10">
+                            <input readonly id="first_name" type="text" class="form-control" th:value="${loggedUser.lastName}">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="last_name" >Last name</label>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="last_name" >Last name</label></div>
+                        <div class="col-xs-10">
                         <input readonly id="last_name" type="text" class="form-control" th:value="${loggedUser.firstName}">
 <!--                        &#45;&#45;&#45;&#45;&#45;&#45;Prenume utilizator luat din baza de date &#45;&#45;II&#45;&#45;-->
                     </div>
-                    <div class="input-group">
-                        <input id="address" type="text"  class="form-control" th:value="${loggedUser.firstName}">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="address" >Address</label></div>
+                        <div class="col-xs-10">
+                        <input id="address" type="text"  class="form-control" th:value="${loggedUser.address}">
 <!--                        <div class="input-group-addon"><p th:text="${loggedUser.address}"></p></div>-->
 <!--                        &#45;&#45;&#45;&#45;&#45;&#45;Adresa utilizator luat din baza de date&#45;&#45;poate fi schimbata-->
-                    </div>
-                    <div class="input-group">
-                        <input id="phone_number" type="text" class="form-control">
-                        <div class="input-group-addon"><p th:text="${loggedUser.phoneNumber}"></p></div>
-<!--                        &#45;&#45;&#45;&#45;&#45;&#45;Nume utilizator luat din baza de date-->
-                    </div>
-                    <div class="input-group">
-                        <input id="email" type="text" class="form-control">
-                        <div class="input-group-addon"><p th:text="${loggedUser.email}"></p></div>
-<!--                        &#45;&#45;&#45;&#45;&#45;&#45;Email luat din baza de date-->
+                        </div></div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="phone_number" >Phone Number</label></div>
+                        <div class="col-xs-10">
+                            <input id="phone_number" type="text"  class="form-control" th:value="${loggedUser.phoneNumber}">
+                           <!-- <input id="phone_number1" type="text" class="form-control" placeholder="Your new phone-number"> -->
+                        </div>
                     </div>
 
+<!--                        &#45;&#45;&#45;&#45;&#45;&#45;Nume utilizator luat din baza de date-->
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="email" >Email</label></div>
+                        <div class="col-xs-10">
+                            <input id="email" type="text"  class="form-control" th:value="${loggedUser.email}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="password" >Current Password</label></div>
+                        <div class="col-xs-10">
+                            <input id="password" type="password"  class="form-control" placeholder="Your current password:">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label for="new_password" >Change Password</label></div>
+                        <div class="col-xs-10">
+                            <input id="new_password" type="password"  class="form-control" placeholder="Your new password:">
+                            <div class="repeat">
+                            <input id="corfirmed_password" type="password"  class="form-control" placeholder="Confirm New Password">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="col-md-2">
-<!--                <button type="button" class="btn btn-primary"> Optiuni USER</button>-->
-<!--                <br><br>-->
-<!--                <button type="button" class="btn btn-warning">Schimba adresa</button>-->
-<!--                <br><br>-->
-<!--                <button type="button" class="btn btn-warning">Schimba numar</button>-->
-<!--                <br><br>-->
-<!--                <button type="button" class="btn btn-warning">Schimba email</button>-->
-<!--                <br><br>-->
-<!--                <button type="button" class="btn btn-warning">Schimba parola</button>-->
-<!--                <br><br>-->
                 <button type="button" class="btn btn-warning">Save changes</button>
             </div>
         </div>

@@ -123,6 +123,3 @@ label[for=tickets_subscription2]{
 	border: 1px solid #222;
 	border-radius: 10px;
 }
-.selected_page:focus{
-	inline:solid 3px black;
-}

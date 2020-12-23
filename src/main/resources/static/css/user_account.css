@@ -1,0 +1,62 @@
+body {
+    max-width: 1520px;
+    max-height: 100%;
+    background-repeat: repeat;
+    background-position: 1560px -340px;
+    background-image: url(../images/art.jpg)
+
+}
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff;
+}
+.navbar.navbar-default{
+    background-image: linear-gradient(to bottom,#d48162 10%,#222d51 100%)
+
+}
+
+.navbar.navbar-default.fixed{
+    position: fixed;
+    width: 1140px;
+    z-index:9999;
+}
+.layer{
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    background:rgba(255,255,255,0.3);
+    text-align: center;
+    width:100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto
+
+}
+.photo
+{
+    height: 250px;
+    width:100%;
+    margin-bottom:20px;
+}
+.space
+{
+    margin-top: 70px;
+}
+
+.col-xs-2{
+    margin-top:2px;
+    text-align: center;
+}
+.row{
+    margin-top:10px;
+}
+.btn.btn-warning{
+    margin-top:10px;
+}
+.col-md-2{
+    margin-top:340px;
+}
+.repeat{
+    padding-top:5px;
+    padding-bottom: 5px;
+}
