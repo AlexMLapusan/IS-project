@@ -19,48 +19,34 @@ body {
     width: 1140px;
     z-index:9999;
 }
+.space
+{
+    margin-top: 100px;
+}
 .layer{
     padding-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 40px;
     padding-right: 20px;
     padding-top: 5px;
-    background:rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.7);
     text-align: center;
     width:100%;
     height: 100%;
     margin-left: auto;
-    margin-right: auto
-
-}
-.photo
-{
-    height: 250px;
-    width:100%;
-    margin-bottom:20px;
-}
-.space
-{
-    margin-top: 70px;
-}
-
-.col-xs-2{
-    margin-top:2px;
-    text-align: center;
-}
-.row{
-    margin-top:10px;
-}
-.btn.btn-warning{
-    margin-top:10px;
-}
-.col-md-2{
-    margin-top:350px;
-}
-.repeat{
-    padding-top:5px;
-    padding-bottom: 5px;
+    margin-right: auto;
 }
 .active{
     border-radius: 5px;
     background-color: #d48162;
+}
+.routes{
+    border-left: 10px solid #d48162;
+    background-color: lightgrey;
+    width:82%;
+}
+#route{
+    padding-bottom:10px;
+}
+#route1{
+    padding-bottom: 10px;
 }
