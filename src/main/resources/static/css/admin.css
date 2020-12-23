@@ -3,7 +3,7 @@ body {
 	max-height: 100%;
     background-repeat: repeat; 
 	background-position: 1560px -340px;
-	background-image: url("adminwall.jpg")
+	background-image: url("../images/adminwall.jpg")
 	
 }
 .navbar-default .navbar-nav>li>a {
