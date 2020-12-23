@@ -123,3 +123,7 @@ label[for=tickets_subscription2]{
 	border: 1px solid #222;
 	border-radius: 10px;
 }
+.active{
+	border-radius: 5px;
+	background-color: #d48162;
+}

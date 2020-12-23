@@ -46,6 +46,9 @@ public class PagesController {
 
     @RequestMapping("/home_admin")
     public String homeForAdmin(){ return "home_admin"; }
+    @RequestMapping("/routes")
+    public String routes(){ return "routes"; }
+
 
 
 
