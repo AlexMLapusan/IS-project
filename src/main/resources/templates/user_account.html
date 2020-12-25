@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -24,7 +24,7 @@
     <div class="space">
         <div class="row">
             <div class="col-md-3">
-                <img class="photo" th:src=${loggedUser.image}>
+                <img id="image_src" class="photo" th:src=${loggedUser.image}>
                 <div class="text-right">
                     <div class="btn btn-warning">Schimba poza</div>
                 </div>
@@ -85,7 +85,7 @@
                         <div class="col-xs-10">
                             <input id="new_password" type="password"  class="form-control" placeholder="Your new password:">
                             <div class="repeat">
-                            <input id="corfirmed_password" type="password"  class="form-control" placeholder="Confirm New Password">
+                            <input id="confirmed_password" type="password"  class="form-control" placeholder="Confirm New Password">
                             </div>
                         </div>
                     </div>
@@ -93,9 +93,15 @@
             </div>
 
             <div class="col-md-2">
-                <button type="button" class="btn btn-warning">Save changes</button>
+                <button id = "update_button" type="button" class="btn btn-warning">Save changes</button>
             </div>
+            <span id="user_id" style="display: none" th:text="${loggedUser.id}"></span>
+            <span id="current_password" style="display: none" th:text="${loggedUser.password}"></span>
+            <span id="confirmation_status" style="display: none" th:text="${loggedUser.confirmed}"></span>
         </div>
     </div>
 </div>
+
+<script th:src="@{/js/user_account.js}"></script>
+
 </body>

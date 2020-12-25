@@ -1,6 +1,10 @@
 package com.spring.repository;
 
+import com.spring.dto.RegisterUserDTO;
 import com.spring.entity.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,7 +12,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.Collection;
-import java.util.List;
 
 @Repository
 public class UserRepo {
@@ -16,9 +19,11 @@ public class UserRepo {
 
     public void insertNewUser(User user) {
         EntityManager em = entityManagerFactory.createEntityManager();
+
         em.getTransaction().begin();
         em.persist(user);
         em.getTransaction().commit();
+
         em.close();
     }
 
@@ -56,4 +61,17 @@ public class UserRepo {
         entityManager.close();
         return users;
     }
+
+
+    public User updateUser(User user) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        entityManager.merge(user);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+        return user;
+    }
+
 }
