@@ -1,10 +1,14 @@
 package com.spring.controller;
 
+import com.spring.entity.Route;
 import com.spring.entity.User;
+import com.spring.service.RouteService;
 import com.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Collection;
 
 @Controller
 public class PagesController {
@@ -42,14 +46,26 @@ public class PagesController {
     }
 
     @RequestMapping("/buy")
-    public String buy() { return "buy"; }
+    public String buy(ModelMap modelMap) {
+        Collection<Route> routes = Utils.getRoutes();
+        modelMap.addAttribute("routes", routes);
+        return "buy";
+    }
 
     @RequestMapping("/home_admin")
     public String homeForAdmin(){ return "home_admin"; }
+
     @RequestMapping("/routes")
-    public String routes(){ return "routes"; }
+    public String routes(ModelMap modelMap){
+        return "routes";
+    }
 
-
-
+    //admin page to manage users
+    @RequestMapping("/manage_users")
+    public String manageUserAccounts(){
+        RouteService rs= new RouteService();
+        rs.getAllRoutes();
+        return "manage_users";
+    }
 
 }

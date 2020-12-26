@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
 	<script src="js/bootstrap/bootstrap.min.js"></script>
-
+	<script
+			src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			crossorigin="anonymous"></script>
 
 
 </head>
@@ -28,13 +31,13 @@
 			<div class="layer">
 				<h2 >Creare Abonament -Calatorii</h2>
 
-				<label for="tickets_subscription">Nr. calatorii dorite</label>
-				<select id = "tickets_subscription" name="calatorii" >
+				<label class="subscription_option" for="tickets_subscription">Nr. calatorii dorite</label>
+				<select class="subscription_option" id = "tickets_subscription" name="calatorii" >
 					<option value="default">Introduceti numarul</option>
-					<option value="30cal">30 calatorii</option>
-					<option value="60cal">60 calatorii</option>
-					<option value="90cal">90 calatorii</option>
-					<option value="120cal">120 calatorii</option>
+					<option value="30">30 calatorii</option>
+					<option value="60">60 calatorii</option>
+					<option value="90">90 calatorii</option>
+					<option value="120">120 calatorii</option>
 					<option value="nelimitat">Nelimitat</option>
 				</select>
 
@@ -44,45 +47,48 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<div class="layer">
+			<div id="one_line" class="layer">
 				<h2 >Creare Abonament -  O Linie</h2>
 
 
-
-				<label for="tickets_subscription1">Introduceti linia dorita:</label>
-				<select id = "tickets_subscription1"name="oLinie"  >
-					<option value="default">Introduceti numarul liniei</option>
-					<option value="L1">Linia 1</option>
-					<option value="L2">Linia 2</option>
-					<option value="L3">Linia 3</option>
-					<option value="L4">Linia 4</option>
-					<option value="L5">Linia 5</option>
+				<label class="subscription_option" for="one_line_option">Pick route:</label>
+				<select class="subscription_option" id = "one_line_option" th:field="*{routes}">
+					<option th:each="route: ${routes}" th:value="${route.id}" th:text="${route.alias}">
+					</option>
 				</select>
+<!--				<select class="subscription_option" id = "tickets_subscription1" name="oLinie"  >-->
+<!--					<option value="default">Introduceti numarul liniei</option>-->
+<!--					<option value="L1">Linia 1</option>-->
+<!--					<option value="L2">Linia 2</option>-->
+<!--					<option value="L3">Linia 3</option>-->
+<!--					<option value="L4">Linia 4</option>-->
+<!--					<option value="L5">Linia 5</option>-->
+<!--				</select>-->
 
 				<div class="text-center">
-					<button type="button" class="btn btn-danger"><a class="link">Finalizati actiunea!</a></button>
+					<button type="button" class="btn btn-danger"><a class="link">Done</a></button>
 				</div>
 			</div></div>
 		<div class="col-md-4">
 			<div class="layer">
-				<h2 >Creare Abonament -Doua Linii</h2>
-				<label for="tickets_subscription2">Introduceti liniile dorite:</label>
-				<select id = "tickets_subscription2" name="2Linii"  >
-					<option value="default">Introduceti numarul liniei</option>
-					<option value="L1">Linia 1</option>
-					<option value="L2">Linia 2</option>
-					<option value="L3">Linia 3</option>
-					<option value="L4">Linia 4</option>
-					<option value="L5">Linia 5</option>
+				<h2 >Subscribe to 2 routes</h2>
+				<label class="subscription_option" for="two_lines_option_1">Pick routes:</label>
+				<select class="subscription_option" id = "two_lines_option_1" th:field="*{routes}">
+					<option th:each="route: ${routes}" th:value="${route.id}" th:text="${route.alias}">
+					</option>
 				</select>
+<!--				<select class="subscription_option" id = "two_lines_option" name="2Linii"  >-->
+<!--					<option value="default">Introduceti numarul liniei</option>-->
+<!--					<option value="L1">Linia 1</option>-->
+<!--					<option value="L2">Linia 2</option>-->
+<!--					<option value="L3">Linia 3</option>-->
+<!--					<option value="L4">Linia 4</option>-->
+<!--					<option value="L5">Linia 5</option>-->
+<!--				</select>-->
 
-				<select id = "tickets_subscription3" name="2Linii" >
-					<option value="default">Introduceti numarul liniei</option>
-					<option value="L1">Linia 1</option>
-					<option value="L2">Linia 2</option>
-					<option value="L3">Linia 3</option>
-					<option value="L4">Linia 4</option>
-					<option value="L5">Linia 5</option>
+				<select class="subscription_option" id = "two_lines_option_2" th:field="*{routes}">
+					<option th:each="route: ${routes}" th:value="${route.id}" th:text="${route.alias}">
+					</option>
 				</select>
 				<div class="text-center">
 					<button type="button" class="btn btn-danger"><a class="link">Finalizati actiunea!</a></button>

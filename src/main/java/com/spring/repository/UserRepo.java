@@ -74,4 +74,19 @@ public class UserRepo {
         return user;
     }
 
+    public Boolean deleteUser(String id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        User toBeDeleted = entityManager.find(User.class, id);
+        entityManager.getTransaction().begin();
+        entityManager.remove(toBeDeleted);
+        entityManager.flush();
+        entityManager.clear();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return true;
+    }
+
+
 }

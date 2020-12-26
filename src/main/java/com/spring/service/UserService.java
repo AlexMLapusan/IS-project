@@ -36,4 +36,12 @@ public class UserService {
 
         return updatedUser;
     }
+
+    @Transactional
+    public Boolean deleteUser(String userId) {
+        Boolean allGood = ur.deleteUser(userId);
+
+        return allGood ;
+    }
+
 }
