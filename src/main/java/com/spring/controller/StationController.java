@@ -1,11 +1,8 @@
 package com.spring.controller;
 
-import com.spring.dto.RegisterUserDTO;
 import com.spring.dto.StationDTO;
 import com.spring.entity.Station;
-import com.spring.entity.User;
 import com.spring.mappers.StationMapper;
-import com.spring.mappers.UserMapper;
 import com.spring.service.StationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +32,10 @@ public class StationController {
         }
 
         return newStation;
+    }
+
+    @RequestMapping(value = "/delete/{stationId}", method = RequestMethod.DELETE)
+    public Boolean deleteStation(@PathVariable String stationId) {
+        return stationService.deleteStation(stationId);
     }
 }

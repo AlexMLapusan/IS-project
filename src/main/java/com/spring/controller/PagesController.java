@@ -63,9 +63,12 @@ public class PagesController {
     //admin page to manage users
     @RequestMapping("/manage_users")
     public String manageUserAccounts(){
-        RouteService rs= new RouteService();
-        rs.getAllRoutes();
         return "manage_users";
+    }
+
+    @RequestMapping("/manage_stations")
+    public String manageStations(){
+        return "manage_stations";
     }
 
 }

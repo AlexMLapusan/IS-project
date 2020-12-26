@@ -1,6 +1,5 @@
 package com.spring.repository;
 
-import com.spring.entity.Route;
 import com.spring.entity.Station;
 import org.springframework.stereotype.Repository;
 
@@ -42,6 +41,20 @@ public class StationRepo {
         entityManager.close();
 
         return stations;
+    }
+
+    public Boolean deleteStation(String id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Station toBeDeleted = entityManager.find(Station.class, id);
+        entityManager.getTransaction().begin();
+        entityManager.remove(toBeDeleted);
+        entityManager.flush();
+        entityManager.clear();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return true;
     }
 
 }

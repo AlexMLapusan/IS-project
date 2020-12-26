@@ -1,6 +1,5 @@
 package com.spring.service;
 
-import com.spring.dto.StationDTO;
 import com.spring.entity.Station;
 import com.spring.repository.StationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,11 @@ public class StationService {
         //todo validari, schimbare tip returnat, all the good stuff
         stationRepo.insertNewStation(station);
         return true;
+    }
+
+    public Boolean deleteStation(String stationId){
+        //todo validari si returnare valori relevante
+        return stationRepo.deleteStation(stationId);
     }
 
 }
