@@ -10,9 +10,13 @@ import java.util.Collection;
 @Service
 public class RouteService {
     @Autowired
-    private RouteRepo rr;
+    private RouteRepo routeRepo;
 
     public Collection<Route> getAllRoutes(){
-        return rr.getAllRoutes();
+        return routeRepo.getAllRoutes();
+    }
+
+    public Route addStation(String routeId, String stationId){
+        return routeRepo.addStation(routeId, stationId);
     }
 }

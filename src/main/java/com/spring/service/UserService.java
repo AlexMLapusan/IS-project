@@ -16,21 +16,21 @@ import java.util.UUID;
 public class UserService {
 
     @Autowired
-    private UserRepo ur;
+    private UserRepo userRepo;
 
     public Collection<User> getAllUsers() {
-        return ur.getAllUsers();
+        return userRepo.getAllUsers();
     }
 
     public boolean insertNewUser(User newUser) {
-        ur.insertNewUser(newUser);
+        userRepo.insertNewUser(newUser);
         //todo validate (perhaps inserting failed) and return false if something went wrong
         return true;
     }
 
     @Transactional
     public User updateUser(User user) {
-        User updatedUser = ur.updateUser(user);
+        User updatedUser = userRepo.updateUser(user);
 
         Utils.setLoggedUser(updatedUser);
 
@@ -39,7 +39,7 @@ public class UserService {
 
     @Transactional
     public Boolean deleteUser(String userId) {
-        Boolean allGood = ur.deleteUser(userId);
+        Boolean allGood = userRepo.deleteUser(userId);
 
         return allGood ;
     }

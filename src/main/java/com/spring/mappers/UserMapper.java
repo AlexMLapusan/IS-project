@@ -10,9 +10,6 @@ import java.util.UUID;
 
 public class UserMapper {
 
-    @Autowired
-    UserRepo userRepo;
-
     public static UserDTO convertToUserDTO(User user) {
         UserDTO userDto = new UserDTO();
         userDto.setAddress(user.getAddress());
