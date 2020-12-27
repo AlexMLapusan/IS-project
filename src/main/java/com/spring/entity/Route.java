@@ -101,4 +101,12 @@ public class Route {
     public void setStations(List<Station> stations) {
         this.stations = stations;
     }
+
+    public void removeStation(String stationId) {
+        this.stations.removeIf(station -> station.getId().equals(stationId));
+    }
+
+    public void addStation(Station station) {
+        this.stations.add(station);
+    }
 }

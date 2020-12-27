@@ -7,10 +7,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/r-2.2.6/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/r-2.2.6/datatables.min.js"></script>
 </head>
 <body>
-
+<!--<button class="btn"><i class="fa fa-close"></i></button>-->
 <select style="display: none" id = "stations" th:field="*{stations}">
     <option th:each="station: ${stations}" th:value="${station.id}" th:text="${station.name}">
     </option>

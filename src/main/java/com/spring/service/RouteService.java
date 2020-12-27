@@ -20,6 +20,10 @@ public class RouteService {
         return routeRepo.addStation(routeId, stationId);
     }
 
+    public Route removeStation(String routeId, String stationId){
+        return routeRepo.removeStation(routeId, stationId);
+    }
+
     public boolean deleteRoute(String routeId){
         return routeRepo.deleteRoute(routeId);
     }

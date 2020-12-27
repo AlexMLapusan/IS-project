@@ -1,5 +1,9 @@
 (function ($) {
 
+    function getButtonForStation(station) {
+        return "<button station_id = '" + station.id + "' class=\"btn delete_station_button\"><i class=\"fa fa-close\"></i>" + station.name + "</button>";
+    }
+
     function populateTable(routes) {
         console.log(routes);
         let $table = $("#routes_table").DataTable({
@@ -28,15 +32,35 @@
 
         routes.forEach(route => {
             //this is bad code, DO NOT DO IT (except now, not it's fine)
-            let stations = route.stations.map(elem => elem.name),
-                $addStation = $("<span></span>").append($("<select></select>").addClass("station_select").html($("#stations").html())).append("<button class='add_station' >Add</button>"),
-                newRow = [route.id, route.alias, route.startingHour, route.endingHour, route.routeInterval, stations, $addStation.html()];
+            let stations = route.stations.map(getButtonForStation),
+                $addStation = $("<span></span>").append($("<select></select>").addClass("station_select").html($("#stations").html())).append("<button class='add_station' >Add</button>");
+
+            newRow = [route.id, route.alias, route.startingHour, route.endingHour, route.routeInterval, stations, $addStation.html()];
 
             newRow.push("<button class = \"delete\">Delete</button>");
             $table.row.add(newRow);
         });
 
         $table.draw();
+
+        //delete station event
+        $(".delete_station_button").click(function () {
+            let routeId = $($(this).parents("tr").find("td")[0]).text(),
+                stationId = $(this).attr('station_id'),
+                settings = {
+                    url: window.location.origin + "/req/route/remove_station/" + stationId,
+                    method: "PUT",
+                    timeout: 0,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: JSON.stringify({id: routeId}),
+                };
+
+            $.ajax(settings).done(function (response) {
+                location.reload();
+            });
+        });
 
         //delete button event
         $(".delete").click(function () {

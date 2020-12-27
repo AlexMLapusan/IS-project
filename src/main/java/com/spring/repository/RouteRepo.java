@@ -50,8 +50,32 @@ public class RouteRepo {
         return route;
     }
 
-    @JsonIgnore
     public Route addStation(String routeId, String stationId) {
+        //todo verificare daca statia cu stationID exista in baza de date respectiv daca e deja in lista de statii a rutei
+        // (desi teoretic o sa fie si o verificare in front end you never know)
+
+        //IMPORTANT cand se incearca adaugarea unei stati deja adaugate se arunca exceptia java.lang.IllegalStateException
+        //use this info wisely
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        StationRepo stationRepo = new StationRepo();
+        Station station = stationRepo.findStation(stationId);
+
+        //get the route
+        Route route = findRoute(routeId);
+        route.addStation(station);
+
+        //update the database entry
+        entityManager.getTransaction().begin();
+        entityManager.merge(route);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return route;
+    }
+
+    public Route removeStation(String routeId, String stationId) {
         //todo verificare daca statia cu stationID exista in baza de date respectiv daca e deja in lista de statii a rutei
         // (desi teoretic o sa fie si o verificare in front end you never know)
 
@@ -62,11 +86,7 @@ public class RouteRepo {
 
         //get the route
         Route route = findRoute(routeId);
-
-        //update stations list
-        List<Station> stationList = route.getStations();
-        stationList.add(station);
-        route.setStations(stationList);
+        route.removeStation(stationId);
 
         //update the database entry
         entityManager.getTransaction().begin();

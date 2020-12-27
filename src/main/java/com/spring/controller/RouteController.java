@@ -22,8 +22,13 @@ public class RouteController {
     }
 
     @RequestMapping(value = "/add_station/{stationId}", method = RequestMethod.PUT)
-    public Route addRoute(@RequestBody IdUniversalDTO routeId, @PathVariable String stationId) {
+    public Route addStation(@RequestBody IdUniversalDTO routeId, @PathVariable String stationId) {
         return routeService.addStation(routeId.getId(), stationId);
+    }
+
+    @RequestMapping(value = "/remove_station/{stationId}", method = RequestMethod.PUT)
+    public Route deleteStation(@RequestBody IdUniversalDTO routeId, @PathVariable String stationId) {
+        return routeService.removeStation(routeId.getId(), stationId);
     }
 
     @RequestMapping(value = "/delete/{routeId}", method = RequestMethod.DELETE)
