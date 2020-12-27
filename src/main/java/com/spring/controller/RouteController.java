@@ -1,8 +1,10 @@
 package com.spring.controller;
 
 import com.spring.dto.IdUniversalDTO;
+import com.spring.dto.RouteDTO;
 import com.spring.entity.Route;
 import com.spring.entity.User;
+import com.spring.mappers.RouteMapper;
 import com.spring.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,20 +39,20 @@ public class RouteController {
     }
 
     //todo insert pentru ruta, pasi ar fi :
-    // - de facut dto pentru ruta (in care avem doar alias, start hour, end hour, interval)
-    // - de facut mapper asemanator cu mapper-u pentru statie in care avem o metoda de la dto la entitate
-    // - de schimbat functia comentata mai jos sa se potriveasca pentru Route (tipurile de date folosite din StationDTO in RouteDTO..etc)
+    // - de facut dto pentru ruta (in care avem doar alias, start hour, end hour, interval)----done
+    // - de facut mapper asemanator cu mapper-u pentru statie in care avem o metoda de la dto la entitate---done
+    // - de schimbat functia comentata mai jos sa se potriveasca pentru Route (tipurile de date folosite din StationDTO in RouteDTO..etc)---done
     // - de creat functiile necesare in RouteService si RouteRepo (flow identic cu cel pentru station)
 
-    //@RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    //    public Station insertNewStation(@RequestBody StationDTO newStationDTO) {
-    //
-    //        Station newStation = StationMapper.stationDTOToEntity(newStationDTO);
-    //
-    //        if (!stationService.insertNewStation(newStation)) {
-    //            return null;
-    //        }
-    //
-    //        return newStation;
-    //    }
+    @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+      public Route insertNewStation(@RequestBody RouteDTO newRouteDTO) {
+
+           Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
+
+            if (!routeService.insertNewRoute(newRoute)) {
+               return null;
+           }
+
+           return newRoute;
+       }
 }
