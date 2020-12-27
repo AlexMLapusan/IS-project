@@ -61,6 +61,10 @@ public class PagesController {
 
     @RequestMapping("/routes")
     public String routes(ModelMap modelMap){
+        //todo schimba luarea rutelor folosind utils cu instantiere de RouteService sau repo sau ceva
+        Collection<Route> routes = Utils.getRoutes();
+        modelMap.addAttribute("routes", routes);
+
         return "routes";
     }
 

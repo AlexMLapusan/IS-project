@@ -30,11 +30,65 @@ body {
     padding-top: 5px;
     background:rgba(255,255,255,0.7);
     text-align: center;
-    width:100%;
-    height: 100%;
+    width:100% !important;
+    height: 70vh;
     margin-left: auto;
     margin-right: auto;
 }
+
+.info_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.route_info{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 100%;
+    margin: auto;
+}
+
+.route_info route_stations{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.timetable{
+    height: 100%;
+    overflow: scroll;
+}
+
+.timetable table, .timetable table thead, .timetable table tbody{
+    display: flex;
+    flex-direction: column;
+}
+
+.timetable table thead{
+    background-color: #d9534f;
+}
+
+.timetable table thead th{
+    padding: 10px;
+}
+
+.even{
+    background-color: #999;
+}
+.odd{
+    background-color: #DDD;
+}
+
+.timetable table tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
 .active{
     border-radius: 5px;
     background-color: #d48162;
@@ -43,10 +97,7 @@ body {
     border-left: 10px solid #d48162;
     background-color: lightgrey;
     width:82%;
-}
-#route{
-    padding-bottom:10px;
-}
-#route1{
-    padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
 }

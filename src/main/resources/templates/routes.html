@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:inline="text" th:href="@{/css/routes.css}">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
 </head>
@@ -24,23 +25,52 @@
 <div class="space">
     <div class="row">
         <div class="col-md-2">
-            <div class="routes">
-                <input readonly id="route" type="text" class="form-control" value="Linia 1"></input>
-                <input readonly id="route1" type="text" class="form-control" value="Linia 2"></input>
-                <input readonly id="route2" type="text" class="form-control" value="Linia 3"></input>
+
+            <div class="routes" th:field="*{routes}">
+                <button th:each="route: ${routes}" th:value="${route.id}" th:text="${route.alias}"></button>
             </div>
+
         </div>
+
         <div class="container">
             <div class="col-md-10">
                 <div class="layer">
-                    <h3>Informatii despre linia X</h3>
+                    <div class="info_container" th:field="*{routes}">
+                        <div style="display: none" class = "route_info" th:each="route: ${routes}" th:id="${route.id}">
+                            <div class = "route_number">
+                                <strong>Route number:
+                                    <span th:text="${route.alias}"></span>
+                                </strong>
+                            </div>
+                            <div class = "route_stations">
+                                <span> Stations: </span>
+                                <span th:each="station: ${route.stations}">
+                                    <span th:text="${station.name}"></span>
+                                </span>
+                            </div>
+                            <div class = "timetable" th:attr="startingHour=${route.startingHour}, endingHour=${route.endingHour}, routeInterval=${route.routeInterval}">
+                                <h3>Timetable</h3>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th th:text="${route.stations[0].name}"></th>
+                                            <th th:text="${route.stations[#lists.size(route.stations) - 1].name}"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 </body>
 
+<script th:src="@{/js/routes.js}"></script>
 
-</div>
 </body>

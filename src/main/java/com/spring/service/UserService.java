@@ -10,7 +10,6 @@ import com.spring.repository.UserRepo;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
-import java.util.UUID;
 
 @Service
 public class UserService {
