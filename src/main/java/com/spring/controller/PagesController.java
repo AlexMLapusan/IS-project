@@ -1,8 +1,11 @@
 package com.spring.controller;
 
 import com.spring.entity.Route;
+import com.spring.entity.Station;
 import com.spring.entity.User;
+import com.spring.repository.StationRepo;
 import com.spring.service.RouteService;
+import com.spring.service.StationService;
 import com.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,6 +50,7 @@ public class PagesController {
 
     @RequestMapping("/buy")
     public String buy(ModelMap modelMap) {
+        //todo schimba luarea rutelor folosind utils cu instantiere de RouteService sau repo sau ceva
         Collection<Route> routes = Utils.getRoutes();
         modelMap.addAttribute("routes", routes);
         return "buy";
@@ -69,6 +73,16 @@ public class PagesController {
     @RequestMapping("/manage_stations")
     public String manageStations(){
         return "manage_stations";
+    }
+
+    @RequestMapping("/manage_routes")
+    public String manageRoutes(ModelMap modelMap){
+        StationRepo stationRepo= new StationRepo();
+
+        Collection<Station> stations = stationRepo.getAllStations();
+        modelMap.addAttribute("stations", stations);
+
+        return "manage_routes";
     }
 
 }

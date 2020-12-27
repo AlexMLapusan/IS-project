@@ -15,13 +15,13 @@ public class Route {
     private String alias;
 
     @Column
-    private int routeInterval;
-
-    @Column
     private String startingHour;
 
     @Column
     private String endingHour;
+
+    @Column
+    private int routeInterval;
 
     @OneToOne (mappedBy = "route")
     private Bus bus;

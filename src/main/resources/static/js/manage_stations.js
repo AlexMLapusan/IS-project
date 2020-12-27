@@ -2,7 +2,7 @@
 
     function populateTable(stations) {
         console.log(stations);
-        let $table = $("#users_table").DataTable({
+        let $table = $("#stations_table").DataTable({
             columns: [
                 {title: 'ID'},
                 {title: 'Name'},

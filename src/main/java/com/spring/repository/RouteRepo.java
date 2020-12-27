@@ -76,4 +76,18 @@ public class RouteRepo {
 
         return route;
     }
+
+    public Boolean deleteRoute(String id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Route toBeDeleted = entityManager.find(Route.class, id);
+        entityManager.getTransaction().begin();
+        entityManager.remove(toBeDeleted);
+        entityManager.flush();
+        entityManager.clear();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return true;
+    }
 }

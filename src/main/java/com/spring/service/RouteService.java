@@ -19,4 +19,9 @@ public class RouteService {
     public Route addStation(String routeId, String stationId){
         return routeRepo.addStation(routeId, stationId);
     }
+
+    public boolean deleteRoute(String routeId){
+        return routeRepo.deleteRoute(routeId);
+    }
+
 }
