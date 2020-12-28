@@ -19,8 +19,8 @@
 <div class="container">
     <div class="navbar navbar-default fixed" > 	ADMIN PANEL
         <ul class="nav navbar-nav pull-right">
-            <li><a href="/transactions">See Transactions</a></li>
-            <li><a href="/manage_users" class="active">Manage Users</a></li>
+            <li><a href="/transactions" class="active">See Transactions</a></li>
+            <li><a href="/manage_users" >Manage Users</a></li>
             <li><a href="/manage_routes">Manage Routes</a></li>
             <li><a href="/manage_stations">Manage Stations</a></li>
 
@@ -33,14 +33,14 @@
 </div>
 <div class="space">
     <div class="layer">
-<table class = "cell-border display compact" id="users_table">
-    <thead>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+        <table class = "cell-border display compact" id="users_table">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
-<script th:src="@{/js/manage_users.js}"></script>
+        <script th:src="@{/js/transactions.js}"></script>
     </div>
 </div>
 </body>
