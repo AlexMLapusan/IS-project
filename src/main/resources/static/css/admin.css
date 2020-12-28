@@ -3,20 +3,19 @@ body {
 	max-height: 100%;
     background-repeat: repeat; 
 	background-position: 1560px -340px;
-	background-image: url("../images/adminwall.jpg")
+	background-image: url("../images/art.jpg")
 	
 }
 .navbar-default .navbar-nav>li>a {
-    color: #ffffff;
+    color: #080808;
 }
-.navbar.navbar-default{
-  background-image: linear-gradient(to bottom,#e7c7bb 10%,#26335e 100%);	
+.navbar.navbar-default {
+	background-image: linear-gradient(to bottom, #d48162 10%, #222d51 100%)
 }
 .navbar.navbar-default.fixed{
 	position: fixed;
 	width: 1140px;
 	z-index:9999;
-	padding-left:10px;
 }
 .col-md-3
 {
@@ -24,13 +23,10 @@ body {
  padding-left:0px;
  
 }
-
 .myAccount{
-	
 text-decoration: none;
 padding-right:10px;
 color:#000000;
-
 }
 .logout{
 	color:#000000;
@@ -39,31 +35,7 @@ color:#000000;
 .row{
 	margin-top:100px;
 }
-.list{
-	list-style-type:none;
-}
-.list1{
-	list-style-type:none;
-	color:#000000;
-	 padding-left:0px;
-}
-.list2{
-	color:#000000;
-}
-.list1>li{
-	padding-top:5px;
-	padding-bottom:5px;
-	list-style-type:none;
-	color:#000000;
-}
-.layer{
-	
-	background:rgba(255,255,255,0.7);
-    opacity: 1.0;
-    text-align: center;
-	width:82%;
-	height: 100%;
-}
+
 .image{
 	height:600px;
 	width:1030px;

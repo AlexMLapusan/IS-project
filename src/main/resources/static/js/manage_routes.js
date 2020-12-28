@@ -103,32 +103,32 @@
         });
 
         //add new route button event
-        // $("#add_button").click(function () {
-        //     let alias = $("#route_alias").val(),
-        //         startingHour = $("#route_start_hour").val(),
-        //         endingHour = $("#route_end_hour").val(),
-        //         interval = $("#route_interval").val(),
-        //         settings = {
-        //             "url": window.location.origin + "/req/station/insert",
-        //             "method": "POST",
-        //             "timeout": 0,
-        //             headers: {
-        //                 "Content-Type": "application/json"
-        //             },
-        //             data: JSON.stringify({
-        //                 alias: alias,
-        //                 startingHour: startingHour,
-        //                 endingHour: endingHour,
-        //                 routeInterval: interval
-        //             }),
-        //         };
-        //
-        //     $.ajax(settings).done(function (response) {
-        //         if (response) {
-        //             location.reload();
-        //         }
-        //     });
-        // });
+        $("#add_button").click(function () {
+            let alias = $("#route_alias").val(),
+                startingHour = $("#route_start_hour").val(),
+                endingHour = $("#route_end_hour").val(),
+                interval = $("#route_interval").val(),
+                settings = {
+                    "url": window.location.origin + "/req/route/insert",
+                    "method": "POST",
+                    "timeout": 0,
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    data: JSON.stringify({
+                        alias: alias,
+                        startingHour: startingHour,
+                        endingHour: endingHour,
+                        routeInterval: interval
+                    }),
+                };
+
+            $.ajax(settings).done(function (response) {
+                if (response) {
+                    location.reload();
+                }
+            });
+        });
     }
 
     const settings = {

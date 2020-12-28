@@ -1,0 +1,46 @@
+body {
+    max-width: 1520px;
+    max-height: 100%;
+    background-repeat: repeat;
+    background-position: 1560px -340px;
+    background-image: url("../images/art.jpg")
+
+}
+.navbar-default .navbar-nav>li>a {
+    color: #080808;
+}
+.navbar.navbar-default {
+    background-image: linear-gradient(to bottom, #d48162 10%, #222d51 100%)
+}
+.navbar.navbar-default.fixed{
+    position: fixed;
+    width: 1140px;
+    z-index:9999;
+}
+.space
+{
+    margin-top: 100px;
+}
+.layer{
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 5px;
+    background:rgba(255,255,255,0.7);
+    text-align: center;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.active{
+    border-radius: 5px;
+    background-color: #d48162;
+}
+.myAccount{
+    text-decoration: none;
+    padding-right:10px;
+    color:#000000;
+}
+.logout{
+    color:#000000;
+}

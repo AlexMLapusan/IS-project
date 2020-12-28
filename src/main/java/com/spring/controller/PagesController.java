@@ -88,5 +88,7 @@ public class PagesController {
 
         return "manage_routes";
     }
+    @RequestMapping("/transactions")
+    public String seeTransactions(){ return "transactions";}
 
 }
