@@ -4,6 +4,10 @@
 <head>
     <title>Manage stations</title>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:inline="text" th:href="@{/css/admin_pages.css}">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
+    <script src="js/bootstrap.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/r-2.2.6/datatables.min.css"/>
@@ -11,6 +15,24 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/r-2.2.6/datatables.min.js"></script>
 </head>
 <body>
+
+<div class="container">
+    <div class="navbar navbar-default fixed" > 	ADMIN PANEL
+        <ul class="nav navbar-nav pull-right">
+            <li><a href="">See Transactions</a></li>
+            <li><a href="/manage_users" >Manage Users</a></li>
+            <li><a href="/manage_routes" class="active">Manage Routes</a></li>
+            <li><a href="/manage_stations">Manage Stations</a></li>
+
+            <li><ul class="list">
+                <li><a href="/myAccountAdmin" class="myAccount"><i class="glyphicon glyphicon-user"></i> My Account </a></li>
+                <li><a href="/login" class="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+            </ul></li>
+        </ul>
+    </div>
+</div>
+<div class="space">
+    <div class="layer">
 <!--<button class="btn"><i class="fa fa-close"></i></button>-->
 <select style="display: none" id = "stations" th:field="*{stations}">
     <option th:each="station: ${stations}" th:value="${station.id}" th:text="${station.name}">
@@ -25,6 +47,7 @@
 </table>
 
 <script th:src="@{/js/manage_routes.js}"></script>
-
+    </div>
+</div>
 </body>
 </html>
