@@ -3,6 +3,7 @@ package com.spring.controller;
 import com.spring.dto.RegisterUserDTO;
 import com.spring.dto.UserDTO;
 import com.spring.entity.User;
+import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public User updateUser(@RequestBody User user) {
+    public ResponseHandler updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
 

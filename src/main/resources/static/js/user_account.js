@@ -1,22 +1,46 @@
 (function ($) {
-    // $("#first_name").text(loca...)
 
     //WARNING posibil sa fie problema la tickets (daca nu le trimit o sa fie [] dupa update) da rezolvi tu
 
+    let retrievedObject = localStorage.getItem('loggedUser');
+    if(retrievedObject == null)
+    {
+        window.location.replace(window.location.origin + "/login");
+    }
+    let loggedUser = JSON.parse(retrievedObject);
+
+    $("#first_name").val(loggedUser.firstName);
+    $("#last_name").val(loggedUser.lastName);
+    $("#address").val(loggedUser.address);
+    $("#phone_number").val(loggedUser.phoneNumber);
+    $("#email").val(loggedUser.email);
+    $("#image_src").attr("src",loggedUser.image);
+
     $("#update_button").click(() => {
-        let inputPassword = $("#password").val(),
-            actualPassword = $("#current_password").text(),
+        let inputPassword = CryptoJS.MD5($("#password").val()).toString(),
             newPassword = $("#new_password").val(),
             newPasswordConfirmation = $("#confirmed_password").val();
-        if(inputPassword === actualPassword && newPassword === newPasswordConfirmation){
-            let id = $("#user_id").text(),
-                confirmed = $("#confirmation_status").text(),
-                firstName = $("#first_name").val(),
+        if(inputPassword === loggedUser.password && newPassword === newPasswordConfirmation){
+            if(newPassword === "")
+            {
+                newPassword = inputPassword;
+            }
+            else
+            {
+                newPassword = CryptoJS.MD5(newPassword).toString();
+            }
+            let firstName = $("#first_name").val(),
                 lastName = $("#last_name").val(),
                 address = $("#address").val(),
                 phoneNumber = $("#phone_number").val(),
                 email = $("#email").val(),
+                confirmed = 1,
                 imageSrc = $("#image_src").attr("src");
+
+            /*if(email !== loggedUser.email)
+                confirmed = 0;
+            } */
+
 
             var settings = {
                 "url": window.location.origin + "/req/user/update",
@@ -26,7 +50,7 @@
                     "Content-Type": "application/json"
                 },
                 "data": JSON.stringify({
-                    "id": id,
+                    "id": loggedUser.id,
                     "confirmed": confirmed,
                     "firstName": firstName,
                     "lastName": lastName,
@@ -40,11 +64,28 @@
 
             $.ajax(settings).done(function (response) {
                 console.log(response);
-                if (response !== null) {
+                if (response.status === "OK") {
+
+                    loggedUser.firstName = firstName;
+                    loggedUser.lastName = lastName;
+                    loggedUser.address = address;
+                    loggedUser.phoneNumber = phoneNumber;
+                    loggedUser.email = email;
+                    loggedUser.imageSrc = imageSrc;
+                    loggedUser.password = newPassword;
+                    localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
+
                     alert("Account updated successfully.");
                     location.reload();
                 } else {
-                    alert("Something went wrong. Please try again");
+                    if(response.data === "email")
+                    {
+                        alert("An account with this email address already exists!");
+                    }
+                    else
+                    {
+                        alert("Something went wrong. Please try again");
+                    }
                 }
             });
         }else {

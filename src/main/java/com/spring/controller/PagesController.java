@@ -18,33 +18,34 @@ public class PagesController {
 
     @RequestMapping("/home_user")
     public String home() {
-        User loggedUser = Utils.getLoggedUser();
-        if (loggedUser == null) {
-            return "login";
-        }
+        //User loggedUser = Utils.getLoggedUser();
+        //if (loggedUser == null) {
+        //    return "login";
+        //}
         return "home_user";
     }
 
     @RequestMapping("/user_account")
-    public String myAccount(ModelMap modelMap) {
-        User loggedUser = Utils.getLoggedUser();
+    public String myAccount() {
+        //public String myAccount(ModelMap modelMap) {
+        //User loggedUser = Utils.getLoggedUser();
 
-        if (loggedUser == null) {
-            return "login";
-        }
-        modelMap.addAttribute("loggedUser", loggedUser);
+        //if (loggedUser == null) {
+        //    return "login";
+        //}
+        //modelMap.addAttribute("loggedUser", loggedUser);
         return "user_account";
     }
 
     @RequestMapping("/login")
     public String login() {
-        Utils.setLoggedUser(null);
+        //Utils.setLoggedUser(null);
         return "login";
     }
 
     @RequestMapping("/register")
     public String register() {
-        Utils.setLoggedUser(null);
+        //Utils.setLoggedUser(null);
         return "register";
     }
 
@@ -61,10 +62,6 @@ public class PagesController {
 
     @RequestMapping("/routes")
     public String routes(ModelMap modelMap){
-        //todo schimba luarea rutelor folosind utils cu instantiere de RouteService sau repo sau ceva
-        Collection<Route> routes = Utils.getRoutes();
-        modelMap.addAttribute("routes", routes);
-
         return "routes";
     }
 
@@ -88,7 +85,5 @@ public class PagesController {
 
         return "manage_routes";
     }
-    @RequestMapping("/transactions")
-    public String seeTransactions(){ return "transactions";}
 
 }

@@ -6,8 +6,9 @@
     <link rel="stylesheet" th:inline="text" th:href="@{/css/user_account.css}">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -24,9 +25,9 @@
     <div class="space">
         <div class="row">
             <div class="col-md-3">
-                <img id="image_src" class="photo" th:src=${loggedUser.image}>
+                <img id="image_src" class="photo">
                 <div class="text-right">
-                    <div class="btn btn-warning">Change photo</div>
+                    <div class="btn btn-warning">Schimba poza</div>
                 </div>
             </div>
 
@@ -36,14 +37,14 @@
                        <div class="col-xs-2">
                            <label for="first_name" >First name </label></div>
                         <div class="col-xs-10">
-                            <input readonly id="first_name" type="text" class="form-control" th:value="${loggedUser.lastName}">
+                            <input id="first_name" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-2">
                             <label for="last_name" >Last name</label></div>
                         <div class="col-xs-10">
-                        <input readonly id="last_name" type="text" class="form-control" th:value="${loggedUser.firstName}">
+                        <input id="last_name" type="text" class="form-control">
 <!--                        &#45;&#45;&#45;&#45;&#45;&#45;Prenume utilizator luat din baza de date &#45;&#45;II&#45;&#45;-->
                     </div>
                     </div>
@@ -51,7 +52,7 @@
                         <div class="col-xs-2">
                             <label for="address" >Address</label></div>
                         <div class="col-xs-10">
-                        <input id="address" type="text"  class="form-control" th:value="${loggedUser.address}">
+                        <input id="address" type="text"  class="form-control" >
 <!--                        <div class="input-group-addon"><p th:text="${loggedUser.address}"></p></div>-->
 <!--                        &#45;&#45;&#45;&#45;&#45;&#45;Adresa utilizator luat din baza de date&#45;&#45;poate fi schimbata-->
                         </div></div>
@@ -59,7 +60,7 @@
                         <div class="col-xs-2">
                             <label for="phone_number" >Phone Number</label></div>
                         <div class="col-xs-10">
-                            <input id="phone_number" type="text"  class="form-control" th:value="${loggedUser.phoneNumber}">
+                            <input id="phone_number" type="text"  class="form-control" >
                            <!-- <input id="phone_number1" type="text" class="form-control" placeholder="Your new phone-number"> -->
                         </div>
                     </div>
@@ -69,7 +70,7 @@
                         <div class="col-xs-2">
                             <label for="email" >Email</label></div>
                         <div class="col-xs-10">
-                            <input id="email" type="text"  class="form-control" th:value="${loggedUser.email}">
+                            <input id="email" type="text"  class="form-control" >
                         </div>
                     </div>
                     <div class="row">
@@ -95,20 +96,7 @@
             <div class="col-md-2">
                 <button id = "update_button" type="button" class="btn btn-warning">Save changes</button>
             </div>
-            <span id="user_id" style="display: none" th:text="${loggedUser.id}"></span>
-            <span id="current_password" style="display: none" th:text="${loggedUser.password}"></span>
-            <span id="confirmation_status" style="display: none" th:text="${loggedUser.confirmed}"></span>
-        </div>
-        <div class="row">
-            <div class="layer">
-            <div class="col-md-6">
-                Your active substrictions are:
 
-            </div>
-            <div class="col-md-6">
-                Your numbers of tickets:
-            </div>
-            </div>
         </div>
     </div>
 </div>

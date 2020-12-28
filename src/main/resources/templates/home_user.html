@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css">
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
             <li><a href="/buy">Subscription/Tickets</a></li>
             <li><a href="/routes">Routes</a></li>
             <li><a href="/user_account">My Account</a></li>
-            <li><a href="/login">Logout</a></li>
+            <li><a id="logout" href="/login">Logout</a></li>
         </ul>
     </div>
     <div class="space">
@@ -121,7 +121,9 @@
         </div>
     </div>
 
-
 </div>
+
+<script th:src="@{/js/home_user.js}"></script>
+
 </body>
 </html>
