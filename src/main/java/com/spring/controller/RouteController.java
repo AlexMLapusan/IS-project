@@ -38,21 +38,16 @@ public class RouteController {
         return routeService.deleteRoute(routeId);
     }
 
-    //todo insert pentru ruta, pasi ar fi :
-    // - de facut dto pentru ruta (in care avem doar alias, start hour, end hour, interval)----done
-    // - de facut mapper asemanator cu mapper-u pentru statie in care avem o metoda de la dto la entitate---done
-    // - de schimbat functia comentata mai jos sa se potriveasca pentru Route (tipurile de date folosite din StationDTO in RouteDTO..etc)---done
-    // - de creat functiile necesare in RouteService si RouteRepo (flow identic cu cel pentru station)
 
     @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-      public Route insertNewStation(@RequestBody RouteDTO newRouteDTO) {
+    public Route insertNewStation(@RequestBody RouteDTO newRouteDTO) {
 
-           Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
+        Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
 
-            if (!routeService.insertNewRoute(newRoute)) {
-               return null;
-           }
+        if (!routeService.insertNewRoute(newRoute)) {
+            return null;
+        }
 
-           return newRoute;
-       }
+        return newRoute;
+    }
 }

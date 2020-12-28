@@ -30,7 +30,7 @@
                 "    <td>" + currentHour + ":" + currentMin + "</td>\n" +
                 "    <td>" + currentHour + ":" + currentMin + "</td>\n" +
                 "</tr>").addClass(parity);
-            this.find("tbody").append($newRow);
+            $tableDiv.find("tbody").append($newRow);
             currentMin += interval;
             parity = parity === "odd" ? "even" : "odd";
         }

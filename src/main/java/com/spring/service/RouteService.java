@@ -29,7 +29,6 @@ public class RouteService {
     }
 
     public Boolean insertNewRoute(Route route) {
-        //todo validari, schimbare tip returnat, all the good stuff
         routeRepo.insertNewRoute(route);
         return true;
     }
