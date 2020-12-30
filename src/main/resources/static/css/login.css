@@ -52,3 +52,7 @@ div{
 	padding-left:25px;
 }
 
+#reset_msg
+{
+	display: none;
+}

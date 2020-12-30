@@ -6,8 +6,9 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" th:inline="text" th:href="@{/css/login.css}"/>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 
 
@@ -41,7 +42,8 @@
 
                 <br>
                 <button id="login" class="btn btn-warning">Login</button>
-                <br><br>
+                <p id="reset_msg">Forgot your password? Enter your email address and click Reset! <button id='password_reset'>Reset</button></p>
+                <br>
                 <a href="/register">If you do not have an account,sing up!</a>
             </div>
         </div>

@@ -2,15 +2,11 @@ package com.spring.repository;
 
 import com.spring.dto.RegisterUserDTO;
 import com.spring.entity.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Repository
@@ -35,6 +31,47 @@ public class UserRepo {
         return user;
     }
 
+    public Boolean checkIfEmailExist(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM User ua WHERE ua.email=:email";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        entityManager.getTransaction().begin();
+
+        try {
+            User u = (User) query.getSingleResult();
+            return true;
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        finally {
+            entityManager.close();
+        }
+    }
+
+    public Boolean checkEmailExistForAnotherId (String email, String id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM User ua WHERE ua.email=:email AND ua.id<>:id";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        query.setParameter("id", id);
+        entityManager.getTransaction().begin();
+
+        try {
+            User u = (User) query.getSingleResult();
+            return true;
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        finally {
+            entityManager.close();
+        }
+    }
+
     public User findUserByEmailAndPass(String email, String pass) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         String select = "SELECT ua FROM User ua WHERE ua.email=:email and ua.password=:password";
@@ -43,10 +80,17 @@ public class UserRepo {
         query.setParameter("email", email);
         query.setParameter("password", pass);
         entityManager.getTransaction().begin();
-        User u = (User) query.getSingleResult();
 
-        entityManager.close();
-        return u;
+        try {
+            User u = (User) query.getSingleResult();
+            return u;
+        }
+        catch (NoResultException e){
+            return null;
+        }
+        finally {
+            entityManager.close();
+        }
     }
 
     public Collection<User> getAllUsers() {
@@ -89,4 +133,23 @@ public class UserRepo {
     }
 
 
+    public User findUserByEmail(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM User ua WHERE ua.email=:email";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        entityManager.getTransaction().begin();
+
+        try {
+            User u = (User) query.getSingleResult();
+            return u;
+        }
+        catch (NoResultException e){
+            return null;
+        }
+        finally {
+            entityManager.close();
+        }
+    }
 }

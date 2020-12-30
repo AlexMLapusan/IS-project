@@ -4,6 +4,7 @@ package com.spring.controller;
 import com.spring.dto.LoginDTO;
 import com.spring.entity.User;
 import com.spring.service.AuthenticationService;
+import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class AuthenticationController {
 //    }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public User attemptLogin(@RequestBody LoginDTO credentials) {
+    public ResponseHandler attemptLogin(@RequestBody LoginDTO credentials) {
         //objectKey will contain the email and password
         return authenticationService.attemptLogin(credentials.getEmail(), credentials.getPassword());
     }

@@ -5,7 +5,7 @@
             address = $("#address").val(),
             phoneNumber = $("#phone_number").val(),
             email = $("#email").val(),
-            password = $("#password").val(),
+            password = CryptoJS.MD5($("#password").val()).toString(),
             imageSrc = $("#image_src").val();
 
         var settings = {
@@ -28,12 +28,19 @@
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            if(response !== null)
+            if(response.status === "OK")
             {
-                alert("Account created. You will now be redirected to the login page");
+                alert("Account created. You will now be redirected to the login page. Please confirm your email account. ");
                 window.location.replace(window.location.origin + "/login");
             }else{
-                alert("Something went wrong. Please try again");
+                if(response.data === "email")
+                {
+                    alert("An account with this email address already exists!");
+                }
+                else
+                {
+                    alert("Something went wrong. Please try again");
+                }
             }
         });
     });

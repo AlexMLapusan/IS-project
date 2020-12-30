@@ -6,6 +6,7 @@ import com.spring.entity.User;
 import com.spring.repository.RouteRepo;
 import com.spring.repository.StationRepo;
 import com.spring.repository.UserRepo;
+import com.spring.utils.MailSender;
 import com.spring.utils.Utils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,7 +30,22 @@ public class Main {
 //        rt.setRouteInterval(69);;
 //
 //    }
+
     public static void main(String[] args) {
+        /*User u = new User(UUID.randomUUID().toString(),"Mihai","Ionel");
+        u.setEmail("mihai@gmail.com");
+        u.setPassword("123");
+
+        UserRepo ur = new UserRepo();
+
+        ur.insertNewUser(u);
+        */
+
+        //MailSender m = new MailSender();
+        //m.senddEmail();
+        //String to = "cristian.berengea@gmail.com";
+        //MailSender.sendEmail(to,"subject","ZZZZZZZZZZZZZZZZZZZZZZZZz");
+
         SpringApplication.run(Main.class, args);
     }
 }
