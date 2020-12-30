@@ -133,4 +133,23 @@ public class UserRepo {
     }
 
 
+    public User findUserByEmail(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM User ua WHERE ua.email=:email";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        entityManager.getTransaction().begin();
+
+        try {
+            User u = (User) query.getSingleResult();
+            return u;
+        }
+        catch (NoResultException e){
+            return null;
+        }
+        finally {
+            entityManager.close();
+        }
+    }
 }

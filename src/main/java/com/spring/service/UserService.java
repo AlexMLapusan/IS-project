@@ -72,4 +72,30 @@ public class UserService {
         }
     }
 
+    public ResponseHandler resetPassword(String email, String password, String newPassword)
+    {
+        User user = userRepo.findUserByEmailAndPass(email, password);
+        if(user != null)
+        {
+            user.setPassword(newPassword);
+            userRepo.updateUser(user);
+            return new ResponseHandler("OK", "");
+        }
+        else
+        {
+            return new ResponseHandler("ERR", "");
+        }
+    }
+
+    public String getUserPassword(String email) {
+        User u = userRepo.findUserByEmail(email);
+        if(u!= null)
+        {
+            return u.getPassword();
+        }
+        else
+        {
+            return "";
+        }
+    }
 }
