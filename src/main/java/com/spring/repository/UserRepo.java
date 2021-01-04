@@ -1,9 +1,7 @@
 package com.spring.repository;
 
-import com.spring.dto.RegisterUserDTO;
+import com.spring.entity.Ticket;
 import com.spring.entity.User;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
@@ -26,7 +24,7 @@ public class UserRepo {
     public User findUser(String id) {
         EntityManager em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
-        User user =	em.find(User.class,id);
+        User user =	em.find(User.class, id);
         em.close();
         return user;
     }
@@ -132,7 +130,6 @@ public class UserRepo {
         return true;
     }
 
-
     public User findUserByEmail(String email) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         String select = "SELECT ua FROM User ua WHERE ua.email=:email";
@@ -152,4 +149,23 @@ public class UserRepo {
             entityManager.close();
         }
     }
+
+    /**
+     * This method deletes a ticket from the user's list of tickets and changes said ticket.
+     * @param userId the user that wishes to use a ticket
+     * @return the updated user
+     */
+    public User useTicket(String userId) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        //delete a ticket from the user and get that deleted ticket
+        User user = findUser(userId);
+        Ticket usedTicket = user.useTicket();
+
+        TicketRepo ticketRepo = new TicketRepo();
+        ticketRepo.useTicket(usedTicket);
+
+        return user;
+    }
+
 }

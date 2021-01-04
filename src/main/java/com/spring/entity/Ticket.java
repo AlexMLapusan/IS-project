@@ -1,10 +1,7 @@
 package com.spring.entity;
 
-import com.spring.utils.Utils;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "ticket")
@@ -70,10 +67,6 @@ public class Ticket {
 
     public void setActivationTime(Date activationTime) {
         this.activationTime = activationTime;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public void setUser(User user) {
