@@ -98,4 +98,16 @@ public class UserService {
             return "";
         }
     }
+
+    public User findUserById(String userId){
+        User u = userRepo.findUser(userId);
+        if(u!= null)
+        {
+            return u;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

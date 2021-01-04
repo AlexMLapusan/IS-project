@@ -32,17 +32,6 @@ public class Ticket {
     public Ticket() {
     }
 
-    public static Ticket createNewTicket(){
-        Ticket newTicket = new Ticket();
-        newTicket.id = UUID.randomUUID().toString();
-        newTicket.valid = true;
-        newTicket.validityDuration = 30;
-        newTicket.activity = false;
-        newTicket.user = Utils.getLoggedUser();
-
-        return newTicket;
-    }
-
     public String getId() {
         return id;
     }

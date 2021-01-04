@@ -1,13 +1,17 @@
 (function ($) {
+    let retrievedObject = localStorage.getItem('loggedUser');
+    let loggedUser = JSON.parse(retrievedObject);
+
     $("#buyTicket").click(() => {
         var quantity = $("#ticketQuantity").val();
         var settings = {
             "url": window.location.origin+"/req/buy/ticket/" + quantity,
-            "method": "POST",
+            "method": "PUT",
             "timeout": 0,
             "headers": {
                 "Content-Type": "application/json"
-            }
+            },
+            "data" : loggedUser.id
         };
 
         $.ajax(settings).done(function (response) {
