@@ -40,7 +40,7 @@ public class RouteController {
 
 
     @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Route insertNewStation(@RequestBody RouteDTO newRouteDTO) {
+    public Route insertNewRoute(@RequestBody RouteDTO newRouteDTO) {
 
         Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
 

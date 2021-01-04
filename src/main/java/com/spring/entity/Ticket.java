@@ -1,7 +1,10 @@
 package com.spring.entity;
 
+import com.spring.utils.Utils;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "ticket")
@@ -14,7 +17,7 @@ public class Ticket {
     private boolean valid;
 
     @Column
-    private String validityDuration;
+    private int validityDuration;
 
     @Column
     private boolean activity;
@@ -27,6 +30,17 @@ public class Ticket {
     private User user;
 
     public Ticket() {
+    }
+
+    public static Ticket createNewTicket(){
+        Ticket newTicket = new Ticket();
+        newTicket.id = UUID.randomUUID().toString();
+        newTicket.valid = true;
+        newTicket.validityDuration = 30;
+        newTicket.activity = false;
+        newTicket.user = Utils.getLoggedUser();
+
+        return newTicket;
     }
 
     public String getId() {
@@ -45,11 +59,11 @@ public class Ticket {
         this.valid = valid;
     }
 
-    public String getValidityDuration() {
+    public int getValidityDuration() {
         return validityDuration;
     }
 
-    public void setValidityDuration(String validityDuration) {
+    public void setValidityDuration(int validityDuration) {
         this.validityDuration = validityDuration;
     }
 

@@ -1,16 +1,6 @@
 package com.spring.entity;
 
-import com.spring.entity.Ticket;
-
-import javax.imageio.ImageIO;
 import javax.persistence.*;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Entity
@@ -52,6 +42,12 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Ticket> tickets;
+
+    @OneToMany(mappedBy = "user")
+    private List<TicketSubscription> ticketSubscriptions;
+
+    @OneToMany(mappedBy = "user")
+    private List<RouteSubscription> routeSubscriptions;
 
     public User() {}
 
