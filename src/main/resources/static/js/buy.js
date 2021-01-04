@@ -11,7 +11,9 @@
             "headers": {
                 "Content-Type": "application/json"
             },
-            "data" : loggedUser.id
+            "data" : JSON.stringify({
+                "id": loggedUser.id
+            })
         };
 
         $.ajax(settings).done(function (response) {
