@@ -44,7 +44,7 @@ public class User {
     private List<Ticket> tickets;
 
     @OneToMany(mappedBy = "user")
-    private List<TicketSubscription> ticketSubscriptions;
+    private List<TripsSubscription> ticketSubscriptions;
 
     @OneToMany(mappedBy = "user")
     private List<RouteSubscription> routeSubscriptions;
@@ -131,5 +131,21 @@ public class User {
 
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public List<TripsSubscription> getTicketSubscriptions() {
+        return ticketSubscriptions;
+    }
+
+    public void setTicketSubscriptions(List<TripsSubscription> ticketSubscriptions) {
+        this.ticketSubscriptions = ticketSubscriptions;
+    }
+
+    public List<RouteSubscription> getRouteSubscriptions() {
+        return routeSubscriptions;
+    }
+
+    public void setRouteSubscriptions(List<RouteSubscription> routeSubscriptions) {
+        this.routeSubscriptions = routeSubscriptions;
     }
 }

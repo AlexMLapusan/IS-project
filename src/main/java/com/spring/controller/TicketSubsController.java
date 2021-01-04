@@ -2,7 +2,9 @@ package com.spring.controller;
 
 import com.spring.dto.IdUniversalDTO;
 import com.spring.entity.Ticket;
+import com.spring.entity.TripsSubscription;
 import com.spring.service.TicketService;
+import com.spring.service.TripSubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class TicketSubsController {
     @Autowired
     private TicketService ticketService;
+    @Autowired
+    private TripSubscriptionService tripSubscriptionService;
+
     @RequestMapping(value = "/ticket/{quantity}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     public Ticket addTickets(@RequestBody IdUniversalDTO userId, @PathVariable int quantity) {
 
@@ -25,5 +30,16 @@ public class TicketSubsController {
         }
 
         return newTicket;
+    }
+
+    @RequestMapping(value = "/trip_sub/{type}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+    public TripsSubscription addTripSub(@RequestBody IdUniversalDTO userId, @PathVariable Integer type) {
+        TripsSubscription ts = new TripsSubscription();
+        ts = tripSubscriptionService.createNewSubscription(userId.getId(), type);
+
+        if (!tripSubscriptionService.insertNewSubscription(ts))
+            return null;
+
+        return ts;
     }
 }

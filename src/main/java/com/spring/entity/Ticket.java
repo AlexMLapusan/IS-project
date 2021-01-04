@@ -72,10 +72,6 @@ public class Ticket {
         this.activationTime = activationTime;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public void setUser(User user) {
         this.user = user;
     }

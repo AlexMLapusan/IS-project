@@ -10,7 +10,7 @@ public class Transaction {
     @Id
     private String id;
 
-    private enum Type {
+    public enum Type {
         TICKET,
         ROUTE_SUBSCRIPTION,
         TICKET_SUBSCRIPTION
