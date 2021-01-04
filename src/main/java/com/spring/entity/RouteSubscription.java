@@ -26,6 +26,10 @@ public class RouteSubscription {
             inverseJoinColumns = @JoinColumn(name = "id_route"))
     private List<Route> routes;
 
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
     public RouteSubscription() {
     }
 
@@ -67,5 +71,13 @@ public class RouteSubscription {
 
     public void setRoutes(List<Route> routes) {
         this.routes = routes;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

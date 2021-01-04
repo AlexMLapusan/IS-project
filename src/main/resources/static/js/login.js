@@ -14,7 +14,9 @@
         }
 
         var settings = {
-            "url": url,
+            "url": url
+        let settings = {
+            "url": window.location.origin+"/req/login/user",
             "method": "POST",
             "timeout": 0,
             "headers": {

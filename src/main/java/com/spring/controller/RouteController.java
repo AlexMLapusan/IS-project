@@ -3,7 +3,6 @@ package com.spring.controller;
 import com.spring.dto.IdUniversalDTO;
 import com.spring.dto.RouteDTO;
 import com.spring.entity.Route;
-import com.spring.entity.User;
 import com.spring.mappers.RouteMapper;
 import com.spring.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class RouteController {
 
 
     @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Route insertNewStation(@RequestBody RouteDTO newRouteDTO) {
+    public Route insertNewRoute(@RequestBody RouteDTO newRouteDTO) {
 
         Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
 

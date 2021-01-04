@@ -18,7 +18,7 @@ public class StationController {
     private StationService stationService;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public Collection<Station> getAllRoutes() {
+    public Collection<Station> getAllStations() {
         return stationService.getAllStations();
     }
 
