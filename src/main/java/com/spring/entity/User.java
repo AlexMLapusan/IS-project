@@ -2,6 +2,7 @@ package com.spring.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user")
@@ -116,9 +117,18 @@ public class User {
     }
 
     public String getImage() {
-//        return new ImageIcon(new ImageIcon(image)
-//                .getImage().getScaledInstance(200,200, Image.SCALE_SMOOTH));
         return image;
+    }
+
+    /**
+     * @return the id of the activated ticket
+     */
+    public Ticket useTicket() {
+        List<Ticket> unusedTickets = this.tickets.stream().filter(ticket -> !ticket.isActivity()).collect(Collectors.toList());
+        if(unusedTickets.isEmpty())
+            return null;
+        Ticket ticket = unusedTickets.get(0);
+        return ticket;
     }
 
     public void setImage(String image) {
