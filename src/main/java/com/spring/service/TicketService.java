@@ -2,6 +2,7 @@ package com.spring.service;
 
 import com.spring.entity.Ticket;
 import com.spring.repository.TicketRepo;
+import com.spring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +20,13 @@ public class TicketService {
     }
 
     public static Ticket createNewTicket(String userId){
-        UserService userService = new UserService();
+        UserRepo userRepo = new UserRepo();
         Ticket newTicket = new Ticket();
         newTicket.setId(UUID.randomUUID().toString());
         newTicket.setValid(true);
         newTicket.setValidityDuration(30);
         newTicket.setActivity(false);
-        newTicket.setUser(userService.findUserById(userId));
+        newTicket.setUser(userRepo.findUser(userId));
 
         return newTicket;
     }
