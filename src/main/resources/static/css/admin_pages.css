@@ -44,3 +44,13 @@ body {
 .logout{
     color:#000000;
 }
+.input-group{
+    padding-top: 15px;
+}
+#register{
+    margin-top: 15px;
+}
+.col-xs-2{
+    margin-top:2px;
+    text-align: center;
+}

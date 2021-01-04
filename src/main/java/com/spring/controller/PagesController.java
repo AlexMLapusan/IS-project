@@ -83,5 +83,13 @@ public class PagesController {
 
         return "manage_routes";
     }
+    @RequestMapping("/admin_register")
+    public String adminRegister(){return "admin_register";}
+
+    @RequestMapping("/admin_account")
+    public String adminAccount(){return "/admin_account";}
+
+    @RequestMapping("/transactions")
+    public String getAllTransactions(){return "/transactions";}
 
 }

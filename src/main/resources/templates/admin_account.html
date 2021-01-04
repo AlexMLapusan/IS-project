@@ -23,33 +23,47 @@
             <li><a href="/admin_register" >Register Admin</a></li>
             <li><a href="/transactions">See Transactions</a></li>
             <li><a href="/manage_users" >Manage Users</a></li>
-            <li><a href="/manage_routes" class="active">Manage Routes</a></li>
+            <li><a href="/manage_routes" >Manage Routes</a></li>
             <li><a href="/manage_stations">Manage Stations</a></li>
 
             <li><ul class="list">
-                <li><a href="/admin_account" class="myAccount"><i class="glyphicon glyphicon-user"></i> My Account </a></li>
+                <li><a href="/admin_account" class="active"><i class="glyphicon glyphicon-user"></i> My Account </a></li>
                 <li><a href="/login" class="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
             </ul></li>
         </ul>
     </div>
 </div>
 <div class="space">
-    <div class="layer">
-<!--<button class="btn"><i class="fa fa-close"></i></button>-->
-<select style="display: none" id = "stations" th:field="*{stations}">
-    <option th:each="station: ${stations}" th:value="${station.id}" th:text="${station.name}">
-    </option>
-</select>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="layer">
+            <div class="row">
+                <div class="col-xs-2">
+                    <label for="email" >Email</label></div>
+                <div class="col-xs-10">
+                    <input id="email" type="text"  class="form-control" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <label for="new_password" >Change Password</label></div>
+                <div class="col-xs-10">
+                    <input id="new_password" type="password"  class="form-control" placeholder="Your new password:">
+                    <div class="repeat">
+                        <input id="confirmed_password" type="password"  class="form-control" placeholder="Confirm New Password">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
-<table class = "cell-border display compact" id="routes_table">
-    <thead>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-
-<script th:src="@{/js/manage_routes.js}"></script>
+        <div class="col-md-3">
+            <button id = "update_button" type="button" class="btn btn-warning">Save changes</button>
+        </div>
     </div>
-</div>
+
+
+
 </body>
 </html>
