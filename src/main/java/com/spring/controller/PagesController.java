@@ -92,4 +92,6 @@ public class PagesController {
     @RequestMapping("/transactions")
     public String getAllTransactions(){return "/transactions";}
 
+    @RequestMapping("/manage_prices")
+    public String managePrices(){return "/manage_prices";}
 }
