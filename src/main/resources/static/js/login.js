@@ -3,8 +3,18 @@
         let email = $("#user_email").val(),
             password = CryptoJS.MD5($("#user_password").val()).toString();
 
+        let url = window.location.origin+"/req/login";
+
+        if($("#isAdmin").is(":checked"))
+        {
+            url += "/admin";
+        }else
+        {
+            url += "/user";
+        }
+
         var settings = {
-            "url": window.location.origin+"/req/login/user",
+            "url": url,
             "method": "POST",
             "timeout": 0,
             "headers": {
