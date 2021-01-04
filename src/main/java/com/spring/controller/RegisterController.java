@@ -1,16 +1,13 @@
 package com.spring.controller;
 
 
-import com.spring.dto.LoginDTO;
 import com.spring.dto.RegisterUserDTO;
 import com.spring.entity.User;
 import com.spring.mappers.UserMapper;
-import com.spring.service.AuthenticationService;
 import com.spring.service.UserService;
 import com.spring.utils.MailSender;
 import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin

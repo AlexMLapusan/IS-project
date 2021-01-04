@@ -3,7 +3,7 @@
         let email = $("#user_email").val(),
             password = CryptoJS.MD5($("#user_password").val()).toString();
 
-        var settings = {
+        let settings = {
             "url": window.location.origin+"/req/login/user",
             "method": "POST",
             "timeout": 0,
