@@ -124,8 +124,11 @@
                 };
 
             $.ajax(settings).done(function (response) {
-                if (response) {
+                if (response.status=="OK") {
                     location.reload();
+                }
+                else{
+                    allert("Couldn't not save at this moment");
                 }
             });
         });
