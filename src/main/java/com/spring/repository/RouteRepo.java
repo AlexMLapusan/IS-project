@@ -6,10 +6,7 @@ import com.spring.entity.Station;
 import com.spring.entity.User;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -109,5 +106,24 @@ public class RouteRepo {
         entityManager.close();
 
         return true;
+    }
+    public Boolean checkIfAliasExists(String alias){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM Route ua WHERE ua.alias=:alias";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("alias",alias);
+        entityManager.getTransaction().begin();
+
+        try {
+            Route s = (Route) query.getSingleResult();
+            return true;
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        finally {
+            entityManager.close();
+        }
     }
 }
