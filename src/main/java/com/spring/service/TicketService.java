@@ -20,7 +20,7 @@ public class TicketService {
         return true;
     }
 
-    public static Ticket createNewTicket(String userId){
+    public Ticket createNewTicket(String userId){
         UserRepo userRepo = new UserRepo();
         Ticket newTicket = new Ticket();
         newTicket.setId(UUID.randomUUID().toString());
@@ -28,9 +28,6 @@ public class TicketService {
         newTicket.setValidityDuration(30);
         newTicket.setActivity(false);
         newTicket.setUser(userRepo.findUser(userId));
-
-        Calendar calendar = Calendar.getInstance();
-        newTicket.setPurchaseDate(calendar.getTime());
 
         return newTicket;
     }
