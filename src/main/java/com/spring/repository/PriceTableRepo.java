@@ -20,6 +20,14 @@ public class PriceTableRepo {
         em.close();
     }
 
+    public PriceTable findPrice(String id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        PriceTable priceTable = em.find(PriceTable.class, id);
+        em.close();
+        return priceTable;
+    }
+
     public PriceTable findByType(PriceTable.Type type){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         String select = "SELECT pt FROM PriceTable pt WHERE pt.type=:type";
@@ -53,4 +61,19 @@ public class PriceTableRepo {
         return prices;
     }
 
+    public boolean updatePrice(String priceId, int newPrice){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        //get the route
+        PriceTable priceTable = findPrice(priceId);
+        priceTable.setPrice(newPrice);
+
+        //update the database entry
+        entityManager.getTransaction().begin();
+        entityManager.merge(priceTable);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return true;
+    }
 }

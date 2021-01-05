@@ -1,14 +1,11 @@
 package com.spring.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.entity.Route;
 import com.spring.entity.Station;
-import com.spring.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 
 @Repository
 public class RouteRepo {
@@ -48,11 +45,7 @@ public class RouteRepo {
     }
 
     public Route addStation(String routeId, String stationId) {
-        //todo verificare daca statia cu stationID exista in baza de date respectiv daca e deja in lista de statii a rutei
-        // (desi teoretic o sa fie si o verificare in front end you never know)
-
         //IMPORTANT cand se incearca adaugarea unei stati deja adaugate se arunca exceptia java.lang.IllegalStateException
-        //use this info wisely
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
