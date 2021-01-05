@@ -58,8 +58,6 @@
 
     $.ajax(settings).done(function (response) {
         console.log({"data": response});
-        if (response.length !== 0) {
-            populateTable(response.map(object => Object.values(object)));
-        }
+        populateTable(response.map(object => Object.values(object)));
     });
 })(jQuery);
