@@ -92,4 +92,80 @@
 
         });
     });
+    $( "#tickets_subscription" ).change(function() {
+        let tripInput = $("#tickets_subscription").val(),
+            tripNumber = (tripInput === "nelimitat") ? 150 : tripInput,
+            settings = {
+                "url": window.location.origin + "/req/buy/price_tickets_subscription",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": tripNumber
+            };
+
+        $.ajax(settings).done(function (response) {
+            $("#tickets_subscription_price").text("Price: " + response.data);
+        });
+    });
+
+    let settings = {
+        "url": window.location.origin + "/req/buy/price_oneRouteSub",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": ""
+    };
+
+    $.ajax(settings).done(function (response) {
+        $("#OneRouteSub_price").text("Price: " + response.data);
+    });
+
+    settings = {
+        "url": window.location.origin + "/req/buy/price_twoRouteSub",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": ""
+    };
+
+    $.ajax(settings).done(function (response) {
+        $("#TwoRouteSub_price").text("Price: " + response.data);
+    });
+
+    $( "#ticketQuantity" ).change(function() {
+        let quantity = $("#ticketQuantity").val();
+            settings = {
+                "url": window.location.origin + "/req/buy/price_ticket",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": ""
+            };
+
+        $.ajax(settings).done(function (response) {
+            let price = parseInt(response.data);
+            $("#Tikets_price").text("Price: " + quantity * price);
+        });
+    });
+    settings = {
+        "url": window.location.origin + "/req/buy/price_tickets_subscription",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": "30"
+    };
+
+    $.ajax(settings).done(function (response) {
+        $("#tickets_subscription_price").text("Price: " + response.data);
+    });
 })(jQuery);
