@@ -4,6 +4,7 @@
 
     $("#buyTicket").click(() => {
         var quantity = $("#ticketQuantity").val();
+      
     var settings = {
         "url": window.location.origin+"/req/buy/ticket/" + quantity,
         "method": "PUT",

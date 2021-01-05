@@ -1,13 +1,42 @@
 (function ($) {
 
     //WARNING posibil sa fie problema la tickets (daca nu le trimit o sa fie [] dupa update) da rezolvi tu
-
     let retrievedObject = localStorage.getItem('loggedUser');
     if(retrievedObject == null)
     {
         window.location.replace(window.location.origin + "/login");
     }
     let loggedUser = JSON.parse(retrievedObject);
+
+    console.log(loggedUser);
+    let noOfTicketsAvailable = loggedUser.tickets.filter( ticket => !ticket.activity).length;
+
+    $("#no_of_tickets").val(noOfTicketsAvailable).text(noOfTicketsAvailable);
+
+    $("#user_assets button").click(()=>{
+        if(noOfTicketsAvailable === 0){
+            alert("No tickets available");
+        }else{
+            let settings = {
+                "url": window.location.origin +"/req/user/use-ticket",
+                "method": "PUT",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({"id":loggedUser.id}),
+            };
+
+            $.ajax(settings).done(function (response) {
+                if(response){
+                    alert("Ticket activated for the next 30 minutes");
+                    localStorage.setItem('loggedUser', JSON.stringify(response));
+                    noOfTicketsAvailable = response.tickets.filter( ticket => !ticket.activity).length;
+                    $("#no_of_tickets").val(noOfTicketsAvailable).text(noOfTicketsAvailable);
+                }
+            });
+        }
+    });
 
     $("#first_name").val(loggedUser.firstName);
     $("#last_name").val(loggedUser.lastName);

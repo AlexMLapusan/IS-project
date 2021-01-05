@@ -18,8 +18,6 @@ public class Admin {
     @Column
     private boolean confirmed;
 
-    @Column
-    private String loginToken;
 
     public Admin() {
     }
@@ -56,11 +54,4 @@ public class Admin {
         this.confirmed = confirmed;
     }
 
-    public String getLoginToken() {
-        return loginToken;
-    }
-
-    public void setLoginToken(String loginToken) {
-        this.loginToken = loginToken;
-    }
 }

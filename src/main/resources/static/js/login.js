@@ -3,8 +3,18 @@
         let email = $("#user_email").val(),
             password = CryptoJS.MD5($("#user_password").val()).toString();
 
-        var settings = {
-            "url": window.location.origin+"/req/login/user",
+        let url = window.location.origin+"/req/login";
+
+        if($("#isAdmin").is(":checked"))
+        {
+            url += "/admin";
+        }else
+        {
+            url += "/user";
+        }
+
+        let settings = {
+            "url": url,
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -16,8 +26,16 @@
         $.ajax(settings).done(function (response) {
             if(response.status === "OK")
             {
-                localStorage.setItem('loggedUser', JSON.stringify(response.data));
-                window.location.replace(window.location.origin + "/home_user");
+                if(response.data.firstName)
+                {
+                    localStorage.setItem('loggedUser', JSON.stringify(response.data));
+                    window.location.replace(window.location.origin + "/home_user");
+                }
+                else
+                {
+                    localStorage.setItem('loggedAdmin', JSON.stringify(response.data));
+                    window.location.replace(window.location.origin + "/home_admin");
+                }
             }
             else
             {
@@ -50,9 +68,18 @@
         let email = $("#user_email").val();
         let newPassword = Math.random().toString(10).substring(2,10);
         let newPasswordEncrypted = CryptoJS.MD5(newPassword).toString();
+        let url = window.location.origin+"/req/";
+
+        if($("#isAdmin").is(":checked"))
+        {
+            url+="admin/send-reset-email";
+        }else
+        {
+            url+="user/send-reset-email";
+        }
 
         var settings = {
-            "url": window.location.origin+"/req/user/send-reset-email",
+            "url": url,
             "method": "POST",
             "timeout": 0,
             "headers": {

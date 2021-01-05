@@ -1,13 +1,10 @@
 package com.spring.service;
 
-import com.spring.dto.RegisterUserDTO;
-import com.spring.dto.UserDTO;
 import com.spring.entity.User;
+import com.spring.repository.UserRepo;
 import com.spring.utils.ResponseHandler;
-import com.spring.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.spring.repository.UserRepo;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
@@ -100,6 +97,8 @@ public class UserService {
     }
 
     public User findUserById(String userId){
+        System.out.println(userId);
+        System.out.println(userRepo);
         User u = userRepo.findUser(userId);
         if(u!= null)
         {
@@ -109,5 +108,9 @@ public class UserService {
         {
             return null;
         }
+    }
+
+    public User useTicket(String userId){
+        return userRepo.useTicket(userId);
     }
 }
