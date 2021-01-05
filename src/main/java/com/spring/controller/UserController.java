@@ -1,18 +1,15 @@
 package com.spring.controller;
 
+import com.spring.dto.IdUniversalDTO;
 import com.spring.entity.User;
+import com.spring.service.UserService;
 import com.spring.utils.MailSender;
 import com.spring.utils.ResponseHandler;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.spring.service.UserService;
 
 import java.util.Collection;
-import java.util.Map;
-
-import javax.servlet.*;
-import javax.servlet.http.*;
 
 @CrossOrigin
 @RestController
@@ -55,5 +52,10 @@ public class UserController {
     public String confirm(@RequestParam(name = "email") String email, @RequestParam(name = "token") String token, @RequestParam(name = "pas") String pas) {
         userService.resetPassword(email,token,pas);
         return "<script > window.location.replace(window.location.origin + \"/login\"); </script>";
+    }
+
+    @RequestMapping(value = "/use-ticket", method = RequestMethod.PUT)
+    public User useTicket(@RequestBody IdUniversalDTO userId) {
+        return userService.useTicket(userId.getId());
     }
 }
