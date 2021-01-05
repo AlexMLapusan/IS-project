@@ -30,13 +30,12 @@ public class PriceTableRepo {
 
         try {
             PriceTable priceTable = (PriceTable) query.getSingleResult();
+            entityManager.close();
             return priceTable;
         }
         catch (NoResultException e){
-            return null;
-        }
-        finally {
             entityManager.close();
+            return null;
         }
     }
 

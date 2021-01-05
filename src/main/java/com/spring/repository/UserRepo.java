@@ -39,13 +39,12 @@ public class UserRepo {
 
         try {
             User u = (User) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
-            return false;
-        }
-        finally {
             entityManager.close();
+            return false;
         }
     }
 
@@ -60,13 +59,12 @@ public class UserRepo {
 
         try {
             User u = (User) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
-            return false;
-        }
-        finally {
             entityManager.close();
+            return false;
         }
     }
 
@@ -81,13 +79,12 @@ public class UserRepo {
 
         try {
             User u = (User) query.getSingleResult();
+            entityManager.close();
             return u;
         }
         catch (NoResultException e){
-            return null;
-        }
-        finally {
             entityManager.close();
+            return null;
         }
     }
 
@@ -140,14 +137,14 @@ public class UserRepo {
 
         try {
             User u = (User) query.getSingleResult();
+            entityManager.close();
             return u;
         }
         catch (NoResultException e){
+            entityManager.close();
             return null;
         }
-        finally {
-            entityManager.close();
-        }
+
     }
 
     /**
