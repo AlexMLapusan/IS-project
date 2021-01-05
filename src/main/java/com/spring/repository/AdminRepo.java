@@ -40,13 +40,12 @@ public class AdminRepo {
 
         try {
             Admin u = (Admin) query.getSingleResult();
+            entityManager.close();
             return u;
         }
         catch (NoResultException e){
-            return null;
-        }
-        finally {
             entityManager.close();
+            return null;
         }
     }
 
@@ -60,14 +59,14 @@ public class AdminRepo {
 
         try {
             Admin u = (Admin) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
+            entityManager.close();
             return false;
         }
-        finally {
-            entityManager.close();
-        }
+
     }
 
     public Admin updateAdmin(Admin admin) {
@@ -92,14 +91,14 @@ public class AdminRepo {
 
         try {
             Admin u = (Admin) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
+            entityManager.close();
             return false;
         }
-        finally {
-            entityManager.close();
-        }
+
     }
 
     public Admin findAdminByEmail(String email) {
@@ -112,13 +111,13 @@ public class AdminRepo {
 
         try {
             Admin ad = (Admin) query.getSingleResult();
+            entityManager.close();
             return ad;
         }
         catch (NoResultException e){
+            entityManager.close();
             return null;
         }
-        finally {
-            entityManager.close();
-        }
+
     }
 }
