@@ -2,6 +2,7 @@ package com.spring.service;
 
 import com.spring.entity.Route;
 import com.spring.repository.RouteRepo;
+import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +31,14 @@ public class RouteService {
         return allGood;
     }
 
-    public Boolean insertNewRoute(Route route) {
-        routeRepo.insertNewRoute(route);
-        return true;
+    public ResponseHandler insertNewRoute(Route route) {
+
+        if(routeRepo.checkIfAliasExists(route.getAlias())){
+            return new ResponseHandler("ERR","name");
+        }else{
+            routeRepo.insertNewRoute(route);
+            return new ResponseHandler("OK","");
+        }
     }
 
 }
