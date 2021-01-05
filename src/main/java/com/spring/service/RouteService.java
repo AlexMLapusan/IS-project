@@ -25,7 +25,9 @@ public class RouteService {
     }
 
     public boolean deleteRoute(String routeId) {
-        return routeRepo.deleteRoute(routeId);
+
+        Boolean allGood= routeRepo.deleteRoute(routeId);
+        return allGood;
     }
 
     public Boolean insertNewRoute(Route route) {
