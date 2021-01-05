@@ -49,6 +49,32 @@ public class TripSubscriptionService {
         return ts;
     }
 
+    public TripsSubscription createSubscription(String type) {
+        TripsSubscription ts = new TripsSubscription();
+
+        TripsSubscription.Type subType = TripsSubscription.Type._30_TRIPS_SUBSCRIPTION;
+        switch (type){
+            case "30" :
+                subType = TripsSubscription.Type._30_TRIPS_SUBSCRIPTION;
+                break;
+            case "60" :
+                subType = TripsSubscription.Type._60_TRIPS_SUBSCRIPTION;
+                break;
+            case "90" :
+                subType = TripsSubscription.Type._90_TRIPS_SUBSCRIPTION;
+                break;
+            case "120" :
+                subType = TripsSubscription.Type._120_TRIPS_SUBSCRIPTION;
+                break;
+            case "150" :
+                subType = TripsSubscription.Type._UNLIMITED_TRIPS_SUBSCRIPTION;
+                break;
+        }
+        ts.setType(subType);
+
+        return ts;
+    }
+
     public boolean insertNewSubscription(TripsSubscription ts) {
         //todo validari, schimbare tip returnat, all the good stuff
 
