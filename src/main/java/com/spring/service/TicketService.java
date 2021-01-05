@@ -6,6 +6,7 @@ import com.spring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 @Service
@@ -27,6 +28,9 @@ public class TicketService {
         newTicket.setValidityDuration(30);
         newTicket.setActivity(false);
         newTicket.setUser(userRepo.findUser(userId));
+
+        Calendar calendar = Calendar.getInstance();
+        newTicket.setPurchaseDate(calendar.getTime());
 
         return newTicket;
     }

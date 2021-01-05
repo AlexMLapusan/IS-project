@@ -3,11 +3,22 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "ticket_subscription")
-public class TicketSubscription {
+@Table(name = "trips_subscription")
+public class TripsSubscription {
 
     @Id
     private String id;
+
+    public enum Type {
+        _30_TRIPS_SUBSCRIPTION,
+        _60_TRIPS_SUBSCRIPTION,
+        _90_TRIPS_SUBSCRIPTION,
+        _120_TRIPS_SUBSCRIPTION,
+        _UNLIMITED_TRIPS_SUBSCRIPTION,
+    };
+
+    @Enumerated(EnumType.ORDINAL)
+    private Type type;
 
     @Column
     private Date creationDate;
@@ -43,11 +54,16 @@ public class TicketSubscription {
         this.expiryDate = expiryDate;
     }
 
-    public User getUser() {
-        return user;
-    }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }
