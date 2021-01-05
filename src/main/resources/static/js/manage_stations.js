@@ -62,7 +62,7 @@
                     location.reload();
                 }
                 else{
-                    allert("Couldn't do it! It has same name with another station.");
+                    alert("Couldn't do it! It has same name with another station.");
                 }
             });
         });

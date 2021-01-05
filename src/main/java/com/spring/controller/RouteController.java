@@ -5,6 +5,7 @@ import com.spring.dto.RouteDTO;
 import com.spring.entity.Route;
 import com.spring.mappers.RouteMapper;
 import com.spring.service.RouteService;
+import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,14 +40,14 @@ public class RouteController {
 
 
     @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Route insertNewRoute(@RequestBody RouteDTO newRouteDTO) {
+    public ResponseHandler insertNewRoute(@RequestBody RouteDTO newRouteDTO) {
 
         Route newRoute = RouteMapper.routeDTOToEntity(newRouteDTO);
 
-        if (!routeService.insertNewRoute(newRoute)) {
+        if (routeService.insertNewRoute(newRoute).getStatus()!="OK") {
             return null;
         }
 
-        return newRoute;
+        return new ResponseHandler("OK",newRoute);
     }
 }
