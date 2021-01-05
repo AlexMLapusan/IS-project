@@ -1,12 +1,10 @@
 package com.spring.repository;
 
 import com.spring.entity.Station;
+import com.spring.entity.User;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Repository
@@ -29,6 +27,25 @@ public class StationRepo {
         entityManager.close();
 
         return station;
+    }
+    public Boolean checkIfNameExists(String name){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM Station ua WHERE ua.name=:name";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("name",name);
+        entityManager.getTransaction().begin();
+
+        try {
+            Station s = (Station) query.getSingleResult();
+            return true;
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        finally {
+            entityManager.close();
+        }
     }
 
     public Collection<Station> getAllStations() {

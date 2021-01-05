@@ -18,11 +18,11 @@ public class TicketSubsController {
     @Autowired
     private TripSubscriptionService tripSubscriptionService;
     @Autowired
-    RouteSubscriptionService routeSubscriptionService;
+    private RouteSubscriptionService routeSubscriptionService;
     @Autowired
-    PriceTableService priceTableService;
+    private PriceTableService priceTableService;
     @Autowired
-    TransactionService transactionService;
+    private TransactionService transactionService;
 
     @RequestMapping(value = "/ticket/{quantity}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     public Ticket addTickets(@RequestBody IdUniversalDTO userId, @PathVariable int quantity) {
