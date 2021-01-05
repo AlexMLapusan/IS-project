@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.Collection;
+import java.util.List;
 
 @Repository
 public class StationRepo {
@@ -48,6 +49,11 @@ public class StationRepo {
 
         Station toBeDeleted = entityManager.find(Station.class, id);
         entityManager.getTransaction().begin();
+
+        // remove all associations
+        Query q = entityManager.createNativeQuery("DELETE FROM route_station rs WHERE rs.id_station = ?");
+        q.setParameter(1, toBeDeleted.getId());
+        q.executeUpdate();
         entityManager.remove(toBeDeleted);
         entityManager.flush();
         entityManager.clear();
