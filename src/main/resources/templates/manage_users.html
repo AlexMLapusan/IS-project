@@ -19,29 +19,35 @@
 <div class="container">
     <div class="navbar navbar-default fixed" > 	ADMIN PANEL
         <ul class="nav navbar-nav pull-right">
+            <li><a href="/home_admin" >Home</a></li>
+            <li><a href="/admin_register" >Register Admin</a></li>
             <li><a href="/transactions">See Transactions</a></li>
+            <li><a href="/manage_prices">Manage Prices</a></li>
             <li><a href="/manage_users" class="active">Manage Users</a></li>
             <li><a href="/manage_routes">Manage Routes</a></li>
             <li><a href="/manage_stations">Manage Stations</a></li>
 
             <li><ul class="list">
-                <li><a href="/myAccountAdmin" class="myAccount"><i class="glyphicon glyphicon-user"></i> My Account </a></li>
+                <li><a href="/admin_account" class="myAccount"><i class="glyphicon glyphicon-user"></i> My Account </a></li>
                 <li><a href="/login" class="logout"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
             </ul></li>
         </ul>
     </div>
 </div>
+
+
 <div class="space">
     <div class="layer">
-<table class = "cell-border display compact" id="users_table">
-    <thead>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
+        <table class = "cell-border display compact" id="users_table">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 
-<script th:src="@{/js/manage_users.js}"></script>
+        <script th:src="@{/js/manage_users.js}"></script>
     </div>
 </div>
+
 </body>
 </html>

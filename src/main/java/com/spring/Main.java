@@ -1,7 +1,17 @@
 package com.spring;
 
-import com.spring.entity.PriceTable;
-import com.spring.repository.PriceTableRepo;
+
+import com.spring.entity.Admin;
+import com.spring.entity.Route;
+import com.spring.entity.Station;
+import com.spring.entity.User;
+import com.spring.repository.AdminRepo;
+import com.spring.repository.RouteRepo;
+import com.spring.repository.StationRepo;
+import com.spring.repository.UserRepo;
+import com.spring.utils.MailSender;
+import com.spring.utils.Utils;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -20,14 +30,17 @@ public class Main {
 //    }
 
     public static void main(String[] args) {
-        /*User u = new User(UUID.randomUUID().toString(),"Mihai","Ionel");
-        u.setEmail("mihai@gmail.com");
-        u.setPassword("123");
+        /*Admin u = new Admin();
+        u.setId(UUID.randomUUID().toString());
+        u.setEmail("cristian.berengea@gmail.com");
+        u.setPassword("202cb962ac59075b964b07152d234b70");
+        u.setConfirmed(true);
 
-        UserRepo ur = new UserRepo();
+        AdminRepo ur = new AdminRepo();
 
-        ur.insertNewUser(u);
-        */
+        ur.insertNewAdmin(u);*/
+
+
 
         //MailSender m = new MailSender();
         //m.senddEmail();

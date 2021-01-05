@@ -2,10 +2,7 @@ package com.spring.controller;
 
 import com.spring.entity.Route;
 import com.spring.entity.Station;
-import com.spring.entity.User;
 import com.spring.repository.StationRepo;
-import com.spring.service.RouteService;
-import com.spring.service.StationService;
 import com.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -62,6 +59,7 @@ public class PagesController {
 
     @RequestMapping("/routes")
     public String routes(ModelMap modelMap){
+        modelMap.addAttribute("routes", Utils.getRoutes());
         return "routes";
     }
 
@@ -85,5 +83,15 @@ public class PagesController {
 
         return "manage_routes";
     }
+    @RequestMapping("/admin_register")
+    public String adminRegister(){return "admin_register";}
 
+    @RequestMapping("/admin_account")
+    public String adminAccount(){return "/admin_account";}
+
+    @RequestMapping("/transactions")
+    public String getAllTransactions(){return "/transactions";}
+
+    @RequestMapping("/manage_prices")
+    public String managePrices(){return "/manage_prices";}
 }

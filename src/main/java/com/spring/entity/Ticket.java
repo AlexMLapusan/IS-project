@@ -1,10 +1,7 @@
 package com.spring.entity;
 
-import com.spring.utils.Utils;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "ticket")
