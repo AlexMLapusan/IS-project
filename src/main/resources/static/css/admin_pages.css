@@ -1,3 +1,19 @@
+table{
+    margin: 0 auto;
+    width: 80%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap:break-word;
+}
+
+table td{
+    word-break:break-all;
+}
+table td input{
+    width: 70%;
+}
+
 body {
     max-width: 1520px;
     max-height: 100%;

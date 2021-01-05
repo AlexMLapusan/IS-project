@@ -2,14 +2,6 @@
 
     function populateTable(users) {
         let $table = $("#users_table").removeAttr('width').DataTable({
-            scrollY:        "300px",
-            scrollX:        true,
-            scrollCollapse: true,
-            paging:         false,
-            columnDefs: [
-                { width: 200, targets: 0 }
-            ],
-            fixedColumns: true,
             columns: [
                 {title: 'ID'},
                 {title: 'First name'},

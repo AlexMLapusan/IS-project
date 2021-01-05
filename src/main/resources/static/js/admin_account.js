@@ -1,7 +1,5 @@
 (function ($) {
 
-    //WARNING posibil sa fie problema la tickets (daca nu le trimit o sa fie [] dupa update) da rezolvi tu
-
     let retrievedObject = localStorage.getItem('loggedAdmin');
     if(retrievedObject == null)
     {

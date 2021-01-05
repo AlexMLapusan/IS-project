@@ -1,7 +1,6 @@
 package com.spring.repository;
 
 import com.spring.entity.Station;
-import com.spring.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
@@ -29,6 +28,7 @@ public class StationRepo {
 
         return station;
     }
+
     public Boolean checkIfNameExists(String name){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         String select = "SELECT ua FROM Station ua WHERE ua.name=:name";
