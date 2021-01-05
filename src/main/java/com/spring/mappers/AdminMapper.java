@@ -13,6 +13,7 @@ public class AdminMapper {
 
     public static Admin registerUserDTOToEntity(RegisterAdminDTO registerAdminDTO) {
         Admin newAdmin = new Admin();
+        newAdmin.setId(UUID.randomUUID().toString());
         newAdmin.setEmail(registerAdminDTO.getEmail());
         newAdmin.setPassword(registerAdminDTO.getPassword());
         newAdmin.setConfirmed(false);

@@ -70,7 +70,7 @@ public class AdminRepo {
         }
     }
 
-    public Admin updateUser(Admin admin) {
+    public Admin updateAdmin(Admin admin) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
@@ -79,5 +79,46 @@ public class AdminRepo {
 
         entityManager.close();
         return admin;
+    }
+
+    public Boolean checkEmailExistForAnotherId (String email, String id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM Admin ua WHERE ua.email=:email AND ua.id<>:id";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        query.setParameter("id", id);
+        entityManager.getTransaction().begin();
+
+        try {
+            Admin u = (Admin) query.getSingleResult();
+            return true;
+        }
+        catch (NoResultException e){
+            return false;
+        }
+        finally {
+            entityManager.close();
+        }
+    }
+
+    public Admin findAdminByEmail(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String select = "SELECT ua FROM Admin ua WHERE ua.email=:email";
+
+        Query query = entityManager.createQuery(select);
+        query.setParameter("email", email);
+        entityManager.getTransaction().begin();
+
+        try {
+            Admin ad = (Admin) query.getSingleResult();
+            return ad;
+        }
+        catch (NoResultException e){
+            return null;
+        }
+        finally {
+            entityManager.close();
+        }
     }
 }
