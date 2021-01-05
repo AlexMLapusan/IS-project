@@ -57,8 +57,12 @@
                 };
 
             $.ajax(settings).done(function (response) {
-                if (response) {
+                if (response.status=="OK")
+                {
                     location.reload();
+                }
+                else{
+                    allert("Couldn't do it! It has same name with another station.");
                 }
             });
         });
