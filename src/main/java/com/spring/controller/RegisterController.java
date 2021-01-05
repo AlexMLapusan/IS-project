@@ -64,10 +64,17 @@ public class RegisterController {
             return r;
         }
         String msg =  " Please confirm your account "
-                + "http://localhost:8080/req/register/confirm?token=" + newAdmin.getPassword()
+                + "http://localhost:8080/req/register/confirm-admin?token=" + newAdmin.getPassword()
                 + "&email=" + newAdmin.getEmail();
         MailSender.sendEmail(newAdmin.getEmail(),"PublicTransport account confirmation", msg);
         return new ResponseHandler("OK", "");
+    }
+
+    @RequestMapping(path = "/confirm-admin", method = RequestMethod.GET)
+    @ResponseBody
+    public String confirmAdmin(@RequestParam(name = "token") String token, @RequestParam(name = "email") String email) {
+        adminService.confirmAccount(email,token);
+        return "<script > window.location.replace(window.location.origin + \"/login\"); </script>";
     }
 
 }
