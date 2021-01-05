@@ -92,6 +92,23 @@ public class RouteRepo {
 
         Route toBeDeleted = entityManager.find(Route.class, id);
         entityManager.getTransaction().begin();
+
+        // get all subs with the route to delete
+        Query q = entityManager.createNativeQuery("SELECT rs.id_subscription FROM rs_routes rs JOIN route_subscription r ON rs.id_subscription = r.id " +
+                "JOIN rs_routes rs2 ON r.id = rs2.id_subscription WHERE rs2.id_route = ? GROUP BY rs.id_subscription");
+        q.setParameter(1, toBeDeleted.getId());
+        List<String> subIds = (List<String>)q.getResultList();
+
+        // remove all associations
+        q = entityManager.createNativeQuery("DELETE FROM rs_routes rs WHERE rs.id_subscription in (:ids)");
+        q.setParameter("ids", subIds);
+        q.executeUpdate();
+
+        // remove all subs
+        q = entityManager.createNativeQuery("DELETE FROM route_subscription r WHERE r.id IN (:ids)");
+        q.setParameter("ids", subIds);
+        q.executeUpdate();
+
         entityManager.remove(toBeDeleted);
         entityManager.flush();
         entityManager.clear();
