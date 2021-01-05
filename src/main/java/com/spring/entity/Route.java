@@ -86,10 +86,6 @@ public class Route {
         this.bus = bus;
     }
 
-    public List<RouteSubscription> getRs() {
-        return rs;
-    }
-
     public void setRs(List<RouteSubscription> rs) {
         this.rs = rs;
     }

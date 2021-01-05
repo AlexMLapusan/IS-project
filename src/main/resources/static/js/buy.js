@@ -11,7 +11,9 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "data" : loggedUser.id
+        "data" : JSON.stringify({
+            "id": loggedUser.id
+        })
     };
 
     $.ajax(settings).done(function (response) {
@@ -30,7 +32,9 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "data" : loggedUser.id
+        "data" : JSON.stringify({
+            "id": loggedUser.id
+        })
     };
 
     $.ajax(settings).done(function (response) {
@@ -48,7 +52,9 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "data": loggedUser.id
+        "data" : JSON.stringify({
+            "id": loggedUser.id
+        })
     };
 
     $.ajax(settings).done(function (response) {
@@ -61,13 +67,17 @@
         var route1Id = $("#two_lines_option_1").val();
     var route2Id = $("#two_lines_option_2").val();
     var settings = {
-        "url": window.location.origin+"/req/buy/route_2_sub/" + route1Id + route2Id,
+        "url": window.location.origin+"/req/buy/route_2_sub/",
         "method": "PUT",
         "timeout": 0,
         "headers": {
             "Content-Type": "application/json"
         },
-        "data" : loggedUser.id
+        "data" : JSON.stringify({
+            "userID": loggedUser.id,
+            "route1ID" : route1Id,
+            "route2ID" : route2Id
+        })
     };
 
     $.ajax(settings).done(function (response) {
