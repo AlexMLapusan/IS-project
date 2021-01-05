@@ -25,6 +25,9 @@ public class Ticket {
     @Column
     private Date activationTime;
 
+    @Column
+    private Date purchaseDate;
+
     @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
@@ -74,5 +77,13 @@ public class Ticket {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 }

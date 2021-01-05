@@ -6,6 +6,7 @@ import com.spring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 @Service
@@ -22,7 +23,6 @@ public class TripSubscriptionService {
         ts.setUser(userRepo.findUser(userId));
 
         TripsSubscription.Type subType = TripsSubscription.Type._30_TRIPS_SUBSCRIPTION;
-
         switch (type){
             case 30 :
                 subType = TripsSubscription.Type._30_TRIPS_SUBSCRIPTION;
@@ -40,8 +40,12 @@ public class TripSubscriptionService {
                 subType = TripsSubscription.Type._UNLIMITED_TRIPS_SUBSCRIPTION;
                 break;
         }
-
         ts.setType(subType);
+
+        Calendar calendar = Calendar.getInstance();
+        ts.setCreationDate(calendar.getTime());
+        calendar.add(Calendar.MONTH, 1);
+        ts.setExpiryDate(calendar.getTime());
         return ts;
     }
 

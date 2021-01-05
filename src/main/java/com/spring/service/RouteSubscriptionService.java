@@ -8,9 +8,7 @@ import com.spring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class RouteSubscriptionService {
@@ -22,9 +20,14 @@ public class RouteSubscriptionService {
         RouteRepo routeRepo = new RouteRepo();
         RouteSubscription routeSubscription = new RouteSubscription();
         List<Route> routes = new ArrayList<Route>();
+        Calendar calendar = Calendar.getInstance();
 
         routeSubscription.setId(UUID.randomUUID().toString());
         routeSubscription.setUser(userRepo.findUser(userId));
+
+        routeSubscription.setCreateDate(calendar.getTime());
+        calendar.add(Calendar.MONTH, 1);
+        routeSubscription.setExpiryDate(calendar.getTime());
 
         routeSubscription.setType(RouteSubscription.Type._1_ROUTE_SUBSCRIPTION);
         routes.add(routeRepo.findRoute(routeID));
@@ -38,9 +41,14 @@ public class RouteSubscriptionService {
         RouteRepo routeRepo = new RouteRepo();
         RouteSubscription routeSubscription = new RouteSubscription();
         List<Route> routes = new ArrayList<Route>();
+        Calendar calendar = Calendar.getInstance();
 
         routeSubscription.setId(UUID.randomUUID().toString());
         routeSubscription.setUser(userRepo.findUser(userId));
+
+        routeSubscription.setCreateDate(calendar.getTime());
+        calendar.add(Calendar.MONTH, 1);
+        routeSubscription.setExpiryDate(calendar.getTime());
 
         routeSubscription.setType(RouteSubscription.Type._2_ROUTES_SUBSCRIPTION);
         routes.add(routeRepo.findRoute(route1ID));
