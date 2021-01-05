@@ -19,14 +19,16 @@ public class UserService {
         return userRepo.getAllUsers();
     }
 
+    public User getUserById(String userId){
+        return userRepo.findUser(userId);
+    }
+
     public ResponseHandler insertNewUser(User newUser) {
         //todo validate (perhaps inserting failed) and return false if something went wrong
 
-        if(userRepo.checkIfEmailExist(newUser.getEmail()))
-        {
+        if (userRepo.checkIfEmailExist(newUser.getEmail())) {
             return new ResponseHandler("ERR", "email");
-        }
-        else{
+        } else {
             userRepo.insertNewUser(newUser);
             return new ResponseHandler("OK", "");
         }
@@ -34,12 +36,9 @@ public class UserService {
 
     @Transactional
     public ResponseHandler updateUser(User user) {
-        if(userRepo.checkEmailExistForAnotherId(user.getEmail(),user.getId()))
-        {
+        if (userRepo.checkEmailExistForAnotherId(user.getEmail(), user.getId())) {
             return new ResponseHandler("ERR", "email");
-        }
-        else
-        {
+        } else {
             User updatedUser = userRepo.updateUser(user);
             return new ResponseHandler("OK", "");
         }
@@ -50,67 +49,53 @@ public class UserService {
     public Boolean deleteUser(String userId) {
         Boolean allGood = userRepo.deleteUser(userId);
 
-        return allGood ;
+        return allGood;
     }
 
     @Transactional
-    public ResponseHandler confirmAccount(String email, String password)
-    {
+    public ResponseHandler confirmAccount(String email, String password) {
         User user = userRepo.findUserByEmailAndPass(email, password);
-        if(user != null)
-        {
+        if (user != null) {
             user.setConfirmed(true);
             userRepo.updateUser(user);
             return new ResponseHandler("OK", "");
-        }
-        else
-        {
+        } else {
             return new ResponseHandler("ERR", "");
         }
     }
 
-    public ResponseHandler resetPassword(String email, String password, String newPassword)
-    {
+    public ResponseHandler resetPassword(String email, String password, String newPassword) {
         User user = userRepo.findUserByEmailAndPass(email, password);
-        if(user != null)
-        {
+        if (user != null) {
             user.setPassword(newPassword);
             userRepo.updateUser(user);
             return new ResponseHandler("OK", "");
-        }
-        else
-        {
+        } else {
             return new ResponseHandler("ERR", "");
         }
     }
 
     public String getUserPassword(String email) {
         User u = userRepo.findUserByEmail(email);
-        if(u!= null)
-        {
+        if (u != null) {
             return u.getPassword();
-        }
-        else
-        {
+        } else {
             return "";
         }
     }
 
-    public User findUserById(String userId){
+    public User findUserById(String userId) {
         System.out.println(userId);
         System.out.println(userRepo);
         User u = userRepo.findUser(userId);
-        if(u!= null)
-        {
+        if (u != null) {
             return u;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
 
-    public User useTicket(String userId){
+    public User useTicket(String userId) {
         return userRepo.useTicket(userId);
     }
 }

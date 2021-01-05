@@ -1,8 +1,15 @@
 (function ($) {
 
     function populateTable(users) {
-        console.log(users);
-        let $table = $("#users_table").DataTable({
+        let $table = $("#users_table").removeAttr('width').DataTable({
+            scrollY:        "300px",
+            scrollX:        true,
+            scrollCollapse: true,
+            paging:         false,
+            columnDefs: [
+                { width: 200, targets: 0 }
+            ],
+            fixedColumns: true,
             columns: [
                 {title: 'ID'},
                 {title: 'First name'},
@@ -13,13 +20,12 @@
                 {title: 'Password'},
                 {title: 'Confirmed'},
                 {title: 'Image'},
-                {title: 'Tickets'},
                 {title: 'Action'}
             ]
         });
 
         users.forEach(user => {
-            let newRow = [...user];
+            let newRow = [...user].slice(0,9);
             newRow.push("<button class = \"delete\">Delete</button>");
             $table.row.add(newRow);
         });

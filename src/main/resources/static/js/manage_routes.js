@@ -26,7 +26,7 @@
             "<input id='route_interval' type='text'>",
             null,
             null,
-            "<button id = 'add_button'>Add station</button>"];
+            "<button id = 'add_button'>Add route</button>"];
 
         $table.row.add(newRow);
 
@@ -140,8 +140,6 @@
 
     $.ajax(settings).done(function (response) {
         console.log({"data": response});
-        if (response.length !== 0) {
-            populateTable(response);
-        }
+        populateTable(response);
     });
 })(jQuery);

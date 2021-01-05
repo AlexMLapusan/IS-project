@@ -44,7 +44,7 @@ public class TicketSubsController {
 
     @RequestMapping(value = "/trip_sub/{type}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     public TripsSubscription addTripSub(@RequestBody IdUniversalDTO userId, @PathVariable Integer type) {
-        TripsSubscription ts =  tripSubscriptionService.createNewSubscription(userId.getId(), type);
+        TripsSubscription ts = tripSubscriptionService.createNewSubscription(userId.getId(), type);
         String tsType = ts.getType().name();
         float price = priceTableService.findByType(PriceTable.Type.valueOf(tsType)).getPrice();
         Transaction transaction = transactionService.createNewTransaction(ts.getId(), Transaction.Type.valueOf(tsType), price);

@@ -19,6 +19,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public User getUser(@PathVariable String userId) {
+        return userService.findUserById(userId);
+    }
+
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public Collection<User> getAllUsers() {
         return userService.getAllUsers();
