@@ -123,6 +123,20 @@ public class UserRepo {
 
         User toBeDeleted = entityManager.find(User.class, id);
         entityManager.getTransaction().begin();
+
+        // remove all associations for this user
+        Query q = entityManager.createNativeQuery("DELETE FROM Ticket t WHERE t.id_user = ?");
+        q.setParameter(1, toBeDeleted.getId());
+        q.executeUpdate();
+
+        q = entityManager.createNativeQuery("DELETE FROM route_subscription rs WHERE rs.id_user = ?");
+        q.setParameter(1, toBeDeleted.getId());
+        q.executeUpdate();
+
+        q = entityManager.createNativeQuery("DELETE FROM trip_subscription ts WHERE ts.id_user = ?");
+        q.setParameter(1, toBeDeleted.getId());
+        q.executeUpdate();
+
         entityManager.remove(toBeDeleted);
         entityManager.flush();
         entityManager.clear();
