@@ -23,9 +23,6 @@ public class Route {
     @Column
     private int routeInterval;
 
-    @OneToOne (mappedBy = "route")
-    private Bus bus;
-
     @ManyToMany(mappedBy = "routes")
     private List<RouteSubscription> rs;
 
@@ -76,18 +73,6 @@ public class Route {
 
     public void setEndingHour(String endingHour) {
         this.endingHour = endingHour;
-    }
-
-    public Bus getBus() {
-        return bus;
-    }
-
-    public void setBus(Bus bus) {
-        this.bus = bus;
-    }
-
-    public List<RouteSubscription> getRs() {
-        return rs;
     }
 
     public void setRs(List<RouteSubscription> rs) {

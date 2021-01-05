@@ -1,5 +1,6 @@
 package com.spring;
 
+
 import com.spring.entity.Admin;
 import com.spring.entity.Route;
 import com.spring.entity.Station;
@@ -10,15 +11,10 @@ import com.spring.repository.StationRepo;
 import com.spring.repository.UserRepo;
 import com.spring.utils.MailSender;
 import com.spring.utils.Utils;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
-import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 @SpringBootApplication
@@ -51,6 +47,13 @@ public class Main {
         //String to = "cristian.berengea@gmail.com";
         //MailSender.sendEmail(to,"subject","ZZZZZZZZZZZZZZZZZZZZZZZZz");
 
+//        PriceTableRepo tp = new PriceTableRepo();
+//        PriceTable pt = new PriceTable();
+//        pt.setId(UUID.randomUUID().toString());
+//        pt.setType(PriceTable.Type._1_ROUTE_SUBSCRIPTION);
+//        pt.setPrice(30);
+//
+//        tp.insertNewPrice(pt);
         SpringApplication.run(Main.class, args);
     }
 }

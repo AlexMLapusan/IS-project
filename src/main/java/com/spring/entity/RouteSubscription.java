@@ -11,8 +11,13 @@ public class RouteSubscription {
     @Id
     private String id;
 
-    @Column
-    private int ticketCount;
+    public enum Type {
+        _1_ROUTE_SUBSCRIPTION,
+        _2_ROUTES_SUBSCRIPTION,
+    };
+
+    @Enumerated(EnumType.ORDINAL)
+    private Type type;
 
     @Column
     private Date createDate;
@@ -41,14 +46,6 @@ public class RouteSubscription {
         this.id = id;
     }
 
-    public int getTicketCount() {
-        return ticketCount;
-    }
-
-    public void setTicketCount(int ticketCount) {
-        this.ticketCount = ticketCount;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -73,11 +70,15 @@ public class RouteSubscription {
         this.routes = routes;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }

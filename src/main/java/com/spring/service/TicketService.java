@@ -6,6 +6,7 @@ import com.spring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 @Service
@@ -19,7 +20,7 @@ public class TicketService {
         return true;
     }
 
-    public static Ticket createNewTicket(String userId){
+    public Ticket createNewTicket(String userId){
         UserRepo userRepo = new UserRepo();
         Ticket newTicket = new Ticket();
         newTicket.setId(UUID.randomUUID().toString());
