@@ -4,6 +4,7 @@ import com.spring.dto.StationDTO;
 import com.spring.entity.Station;
 import com.spring.mappers.StationMapper;
 import com.spring.service.StationService;
+import com.spring.utils.ResponseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,15 +24,15 @@ public class StationController {
     }
 
     @RequestMapping(path = "/insert", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public Station insertNewStation(@RequestBody StationDTO newStationDTO) {
+    public ResponseHandler insertNewStation(@RequestBody StationDTO newStationDTO) {
 
         Station newStation = StationMapper.stationDTOToEntity(newStationDTO);
 
-        if (!stationService.insertNewStation(newStation)) {
+        if (stationService.insertNewStation(newStation).getStatus()!="OK") {
             return null;
         }
 
-        return newStation;
+        return new ResponseHandler("OK",newStation);
     }
 
     @RequestMapping(value = "/delete/{stationId}", method = RequestMethod.DELETE)

@@ -128,7 +128,7 @@
                     location.reload();
                 }
                 else{
-                    allert("Couldn't not save at this moment");
+                    alert("Couldn't not save at this moment!It has same name with another route.");
                 }
             });
         });
