@@ -18,7 +18,7 @@ public class PriceTable {
         _120_TRIPS_SUBSCRIPTION,
         _UNLIMITED_TRIPS_SUBSCRIPTION,
         TICKET
-    };
+    }
 
     @Enumerated(EnumType.ORDINAL)
     private Type type;

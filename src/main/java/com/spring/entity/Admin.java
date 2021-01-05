@@ -18,7 +18,6 @@ public class Admin {
     @Column
     private boolean confirmed;
 
-
     public Admin() {
     }
 
