@@ -1,7 +1,6 @@
 package com.spring.controller;
 
 import com.spring.dto.IdUniversalDTO;
-import com.spring.dto.LoginDTO;
 import com.spring.dto.TwoRoutesSubscriptionDTO;
 import com.spring.entity.*;
 import com.spring.service.*;
@@ -89,28 +88,28 @@ public class TicketSubsController {
     }
 
     @RequestMapping(path = "/price_tickets_subscription", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public ResponseHandler getPriceForTicketsSubscription(@RequestBody String data) {
-        TripsSubscription ts = tripSubscriptionService.createSubscription(data);
+    public ResponseHandler getPriceForTicketsSubscription(@RequestBody Integer data) {
+        TripsSubscription ts = tripSubscriptionService.createNewSubscription("", data);
         String tsType = ts.getType().name();
         float price = priceTableService.findByType(PriceTable.Type.valueOf(tsType)).getPrice();
-        return new ResponseHandler("OK",price);
+        return new ResponseHandler("OK", price);
     }
 
     @RequestMapping(path = "/price_oneRouteSub", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseHandler getPriceForOneRouteSub() {
         float price = priceTableService.findByType(PriceTable.Type._1_ROUTE_SUBSCRIPTION).getPrice();
-        return new ResponseHandler("OK",price);
+        return new ResponseHandler("OK", price);
     }
 
     @RequestMapping(path = "/price_twoRouteSub", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseHandler getPriceForTwoRouteSub() {
         float price = priceTableService.findByType(PriceTable.Type._2_ROUTES_SUBSCRIPTION).getPrice();
-        return new ResponseHandler("OK",price);
+        return new ResponseHandler("OK", price);
     }
 
     @RequestMapping(path = "/price_ticket", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseHandler getPriceForTicket() {
         float price = priceTableService.findByType(PriceTable.Type.TICKET).getPrice();
-        return new ResponseHandler("OK",price);
+        return new ResponseHandler("OK", price);
     }
 }

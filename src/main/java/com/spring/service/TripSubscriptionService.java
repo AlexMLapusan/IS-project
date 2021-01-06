@@ -37,7 +37,7 @@ public class TripSubscriptionService {
                 subType = TripsSubscription.Type._120_TRIPS_SUBSCRIPTION;
                 break;
             case 150 :
-                subType = TripsSubscription.Type._UNLIMITED_TRIPS_SUBSCRIPTION;
+                subType = TripsSubscription.Type.UNLIMITED_TRIPS_SUBSCRIPTION;
                 break;
         }
         ts.setType(subType);
@@ -67,7 +67,7 @@ public class TripSubscriptionService {
                 subType = TripsSubscription.Type._120_TRIPS_SUBSCRIPTION;
                 break;
             case "150" :
-                subType = TripsSubscription.Type._UNLIMITED_TRIPS_SUBSCRIPTION;
+                subType = TripsSubscription.Type.UNLIMITED_TRIPS_SUBSCRIPTION;
                 break;
         }
         ts.setType(subType);
@@ -76,8 +76,6 @@ public class TripSubscriptionService {
     }
 
     public boolean insertNewSubscription(TripsSubscription ts) {
-        //todo validari, schimbare tip returnat, all the good stuff
-
         tripSubscriptionRepo.insertNewSubscription(ts);
         return true;
     }

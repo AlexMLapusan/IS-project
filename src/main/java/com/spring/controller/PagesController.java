@@ -24,13 +24,6 @@ public class PagesController {
 
     @RequestMapping("/user_account")
     public String myAccount() {
-        //public String myAccount(ModelMap modelMap) {
-        //User loggedUser = Utils.getLoggedUser();
-
-        //if (loggedUser == null) {
-        //    return "login";
-        //}
-        //modelMap.addAttribute("loggedUser", loggedUser);
         return "user_account";
     }
 

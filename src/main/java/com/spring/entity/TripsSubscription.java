@@ -14,7 +14,7 @@ public class TripsSubscription {
         _60_TRIPS_SUBSCRIPTION,
         _90_TRIPS_SUBSCRIPTION,
         _120_TRIPS_SUBSCRIPTION,
-        _UNLIMITED_TRIPS_SUBSCRIPTION,
+        UNLIMITED_TRIPS_SUBSCRIPTION,
     };
 
     @Enumerated(EnumType.ORDINAL)

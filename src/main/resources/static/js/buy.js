@@ -29,7 +29,7 @@
 
     $("#buyTripSub").click(() => {
         let tripInput = $("#tickets_subscription").val(),
-            tripNumber = (tripInput === "nelimitat") ? 150 : tripInput,
+            tripNumber = (tripInput === "unlimited") ? 150 : tripInput,
             settings = {
                 "url": window.location.origin + "/req/buy/trip_sub/" + tripNumber,
                 "method": "PUT",
@@ -93,8 +93,8 @@
         });
     });
     $( "#tickets_subscription" ).change(function() {
-        let tripInput = $("#tickets_subscription").val(),
-            tripNumber = (tripInput === "nelimitat") ? 150 : tripInput,
+        let tripInput = $("#tickets_subscription").val().toLowerCase(),
+            tripNumber = (tripInput === "nelimitat") ? "150" : tripInput,
             settings = {
                 "url": window.location.origin + "/req/buy/price_tickets_subscription",
                 "method": "POST",

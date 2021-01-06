@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Repository
 public class RouteRepo {
@@ -100,12 +101,12 @@ public class RouteRepo {
         List<String> subIds = (List<String>)q.getResultList();
 
         // remove all associations
-        q = entityManager.createNativeQuery("DELETE FROM rs_routes rs WHERE rs.id_subscription in (:ids)");
+        q = entityManager.createNativeQuery("DELETE FROM rs_routes WHERE id_subscription in (:ids)");
         q.setParameter("ids", subIds);
         q.executeUpdate();
 
         // remove all subs
-        q = entityManager.createNativeQuery("DELETE FROM route_subscription r WHERE r.id IN (:ids)");
+        q = entityManager.createNativeQuery("DELETE FROM route_subscription  WHERE id IN (:ids)");
         q.setParameter("ids", subIds);
         q.executeUpdate();
 
@@ -127,13 +128,12 @@ public class RouteRepo {
 
         try {
             Route s = (Route) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
-            return false;
-        }
-        finally {
             entityManager.close();
+            return false;
         }
     }
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 
 @Repository
 public class StationRepo {
@@ -39,13 +38,12 @@ public class StationRepo {
 
         try {
             Station s = (Station) query.getSingleResult();
+            entityManager.close();
             return true;
         }
         catch (NoResultException e){
-            return false;
-        }
-        finally {
             entityManager.close();
+            return false;
         }
     }
 
@@ -68,7 +66,7 @@ public class StationRepo {
         entityManager.getTransaction().begin();
 
         // remove all associations
-        Query q = entityManager.createNativeQuery("DELETE FROM route_station rs WHERE rs.id_station = ?");
+        Query q = entityManager.createNativeQuery("DELETE FROM route_station WHERE id_station = ?");
         q.setParameter(1, toBeDeleted.getId());
         q.executeUpdate();
         entityManager.remove(toBeDeleted);
